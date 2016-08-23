@@ -111,16 +111,15 @@ We use both the testing power and the matching ratio for evaluation in the numer
 \label{main1}
 The main algorithm is shown in algorithm~\ref{alg1}, henceforth referred to as MMSJ. 
 
-Given $\{X_{l}, l=1,2\}$ of size $n$ with distance matrices $\Delta_{l}$, we first construct an $n \times n$ graph adjacency $G$ by k-nearest-neighbor using the sum of normalized distance matrices $\sum_{l=1}^{2} \frac{\Delta_{l}}{\|\Delta_{l}\|_{F}}$, i.e., $G(i,j)=1$ if and only if $\sum_{l} \frac{\Delta_{l}(x_{il},x_{jl})}{\|\Delta_{l}\|_{F}}$ is among the smallest $k$ elements in the set $\{ \sum_{l} \frac{\Delta_{l}(x_{il},x_{ql})} {\|\Delta_{l}\|_{F}}, q=1,\ldots,n \}$.
+Given the distance matrices $\Delta_{l}$ for $\{X_{l}, l=1,2\}$, we first construct an $n \times n$ binary graph $G$ by k-nearest-neighbor using the sum of normalized distance matrices $\sum_{l=1}^{2} \frac{\Delta_{l}}{\|\Delta_{l}\|_{F}}$, i.e., $G(i,j)=1$ if and only if $\sum_{l} \frac{\Delta_{l}(x_{il},x_{jl})}{\|\Delta_{l}\|_{F}}$ is among the smallest $k$ elements in the set $\{ \sum_{l} \frac{\Delta_{l}(x_{il},x_{ql})} {\|\Delta_{l}\|_{F}}, q=1,\ldots,n \}$.
 
-Then for each modality $X_{l}$, we calculate the shortest-path distance matrix $\Delta_{l}^{G}$ based on $\Delta_{l}$ and the joint graph $G$. And we apply MDS to 
-embed the normalized shortest-path distance matrix $\frac{\Delta_{l}^{G}}{\|\Delta_{l}^{G}\|_{F}}$ into $\mathbb{R}^{d}$ for each $l$, followed by the Procrustes matching to yield the matched data $\hat{X}_{l}$, i.e., the Procrustes matching finds a $d \times d$ rotation matrix by
+Next, for each modality $X_{l}$, we calculate the shortest-path distance matrix $\Delta_{l}^{G}$ based on the normalized $\Delta_{l}$ and the joint graph $G$, i.e., solve the shortest-path problem using the weighted graph $\frac{\Delta_{l} \circ G }{\|\Delta_{l}\|_{F}}$, where $\circ$ denotes the Hadamard product. Then we apply MDS to embed $\Delta_{l}^{G}$ into $\mathbb{R}^{d}$ for each $l$, followed by the Procrustes matching to yield the matched data $\hat{X}_{l}$, i.e., the Procrustes matching finds a $d \times d$ rotation matrix by
 \begin{align*}
 P&=\arg\min_{P'P=I} \|P \tilde{X}_{1}-\tilde{X}_{2}\|_{F}^{2},
 \end{align*}
 and sets $\hat{X}_{1}=P \tilde{X}_{1}$ and $\hat{X}_{2}=\tilde{X}_{2}$, where $\tilde{X}_{l}$ denotes the embedded data by MDS.
 
-Once the manifolds are learned from matched training data by MMSJ, algorithm~\ref{alg2} can match new testing data of unknown correspondence onto the manifolds. We first construct the shortest-path vectors from the testing data to the training data, by the respective nearest-neighbors within each modality (joint neighborhood is not used as the testing data have unknown correspondence). Then the testing data $y_{l}$ are embedded by MDS out-of-sampling (OOS) technique into $\mathbb{R}^{d}$ to yield $\tilde{y}_{l}$, followed matching by the learned Procrustes transformation, i.e., $\hat{y}_{1}=P \tilde{y}_{1}$ and $\hat{y}_{2}=\tilde{y}_{2}$.
+Once the manifolds are learned from the matched training data, algorithm~\ref{alg2} can match new testing data of unknown correspondence onto the manifolds. Given the distance between testing and training $\Delta_{l}(y_{l},X_{l})$ and the shortest-path distances for the training data $\Delta_{l}^{G}$, we first approximate the shortest-path distances $\Delta_{l}^{G}(y_{l},X_{l})$ by the respective nearest-neighbors of the testing data within each modality. Then the testing data $y_{l}$ are embedded by MDS out-of-sampling (OOS) technique into $\mathbb{R}^{d}$ to yield $\tilde{y}_{l}$, followed by the Procrustes matching, i.e., $\hat{y}_{1}=P \tilde{y}_{1}$ and $\hat{y}_{2}=\tilde{y}_{2}$.
 
 Note that algorithm~\ref{alg2} is applicable to testing data of arbitrary size, but for simplicity we present it for one testing observation from each modality.
 
@@ -128,20 +127,20 @@ Note that algorithm~\ref{alg2} is applicable to testing data of arbitrary size, 
 \caption{Manifold Matching using Shortest-Path Distance and Joint Neighborhood Selection (MMSJ)}
 \label{alg1}
 \begin{algorithmic}[1]
-\Require The distance matrices $\Delta_{l}$ for the matched datasets $\{X_{l}, l=1,2\}$, a neighborhood parameter $k$, and a dimension choice $d$.
+\Require The distance matrices $\Delta_{l}$ for the matched datasets $\{X_{l}, l=1,2\}$, the neighborhood choice $k$, and the dimension choice $d$.
 \Ensure The mapped datasets $\{\hat{X}_{l} \in \mathbb{R}^{d \times n}, l=1,2$\}, the shortest-path distance $\Delta_{l}^{G}$, and the learned Procrustes transformation $P$.
 \Function{MMSJ}{$\Delta_{1},\Delta_{2},k,d$}
 
 \Linefor{$i,j:=1,\ldots,n$}{$G_{ij} \rto \sum_{l} \frac{\Delta_{l}(x_{il},x_{jl})}{\|\Delta_{l}\|_{F}}$} 
-\State $G = \textsc{Sort}(G)$ 
-\Linefor{$i,j:=1,\ldots,n$}{$G_{ij} \rto \mb{I}(G_{ij} < k)$} 
+\State $G = \textsc{Rank}(G)$ \Comment{rank distances within each row}
+\Linefor{$i,j:=1,\ldots,n$}{$G_{ij} \rto \mb{I}(G_{ij} \leq k)$} 
 \For{$l:=1,2$}
-\State $\Delta_{l}^{G} = \textsc{ShortestPath}(\frac{\Delta_{l}}{\|\Delta_{l}\|_{F}}, G)$ 
+\State $\Delta_{l}^{G} = \textsc{ShortestPath}(\frac{\Delta_{l} \circ G }{\|\Delta_{l}\|_{F}})$ 
 \State $\tilde{X}_{l}=\textsc{MDS}(\Delta_{l}^{G},d)$ \Comment{embedding into $\mathbb{R}^{d}$}
 \EndFor
 
-\State $[U,S,V]=\textsc{SVD}(\tilde{X}_{2}^{T}\tilde{X}_{1})$ \Comment{Procrustes matching}
-\State $P \rto UV^{T}$
+\State $[U,S,V]=\textsc{SVD}(\tilde{X}_{2}^{T}\tilde{X}_{1})$
+\State $P \rto UV^{T}$ \Comment{Procrustes matching}
 \State $\hat{X}_{1}=P \tilde{X}_{1}$
 \State $\hat{X}_{2}=\tilde{X}_{2}$
 \EndFunction
@@ -152,13 +151,13 @@ Note that algorithm~\ref{alg2} is applicable to testing data of arbitrary size, 
 \caption{Embed Testing Data based on MMSJ}
 \label{alg2}
 \begin{algorithmic}
-\Require The distance matrices $\Delta_{l}$ for the matched datasets $\{X_{l}, l=1,2\}$, a neighborhood parameter $k$, and a dimension choice $d$.
+\Require The distance vectors $\Delta_{l}(y_{l},X_{l})$, the shortest-path distance matrices $\Delta_{l}$ and the mapped data $\hat{X}_{l}$, the learned Procrustes transformation $P$, and the neighborhood choice $k$.
 \Ensure The mapped testing observations $\hat{y}_{l}$. 
-\Function{MMSJ2}{$\Delta_{1},\Delta_{2},k,d,y_{1},y_{2}$}
-\State $[\Delta_{1}^{G},\Delta_{2}^{G},P]=\textsc{MMSJ}(\Delta_{1},\Delta_{2},k,d)$
+\Function{MMSJ2}{$\Delta_{l}(y_{l},X_{l}),\Delta_{l}^{G},\hat{X}_{l},P,k$}
 \For{$l:=1,2$}
-\State $\Delta_{l}^{y} = \textsc{ShortestPath}(y_{l},X_{l})$ 
-\State $\tilde{y}_{l}=\textsc{MDS-OOS}(\Delta_{l}^{G},\Delta_{l}^{y},d)$
+\State $G_{l} = \textsc{Rank}(\Delta_{l}(y_{l},X_{l}))$
+\State $\Delta_{l}^{G}(y_{l},X_{l}) = \textsc{ShortestPath}([\Delta_{l}^{G} | \Delta_{l}(y_{l},X_{l}) \circ G_{l}])$ 
+\State $\tilde{y}_{l}=\textsc{MDS-OOS}(\hat{X}_{l},\Delta_{l}^{G}(y_{l},X_{l}))$
 \EndFor
 \State $\hat{y}_{1}=P \tilde{y}_{1}$
 \State $\hat{y}_{2}=\tilde{y}_{2}$
@@ -209,13 +208,11 @@ To better visualize the process, we also summarize it by the following flowchart
 \label{discuss}
 In this subsection, we discuss some implementation details of MMSJ, and the benchmarks we compare with.
 
-The joint neighborhood graph ensures consistent neighborhood selection in the case of noisy or nonlinear modality, and is intuitively better than two separate neighborhood graphs for later matching when the correspondence are known. Alternatively, one may use a weighted sum of distances or rank-based method to derive the joint neighborhood graph instead. Note that it is necessary for the distance matrices to be properly scaled so that the joint neighborhood selection is meaningful. 
+The joint neighborhood graph ensures consistent neighborhood selection in the case of noisy or nonlinear modality, and is intuitively better than two separate neighborhood graphs for later matching when the correspondence are known. Alternatively, one may use a weighted sum of distances or rank-based method to derive the joint neighborhood graph instead. Note that it is necessary for the distance matrices to be properly scaled so that the joint neighborhood selection is meaningful, and joint neighborhood should not be used for unknown correspondence like the testing data. 
 
-The shortest-path distance can recover the geodesic distance of isometric manifolds with high probability under certain sampling conditions \citep{BernsteinEtAl2000, SilvaTenenbaum2003}. When used together with joint neighborhood, the shortest-path distance makes use of the correspondence information. Computationally, the shortest-path distance matrix can be effectively implemented by Floyd's algorithm or Dijkstra's algorithm \citep{TenenbaumSilvaLangford2000}, which can be further sped up by choosing a small set of landmark points \citep{SilvaTenenbaum2003, BengioEtal2003}.  
+The shortest-path distance can recover the geodesic distance of isometric manifolds with high probability under certain sampling conditions \citep{BernsteinEtAl2000, SilvaTenenbaum2003}. When used together with joint neighborhood, the shortest-path distance makes use of the correspondence information. Computationally, the shortest-path distance matrix can be effectively implemented by Floyd's algorithm or Dijkstra's algorithm \citep{TenenbaumSilvaLangford2000}, which can be further sped up by choosing a small set of landmark points \citep{SilvaTenenbaum2003, BengioEtal2003}. For testing data, we essentially treats the training data as landmark points and only computes the shortest path distances from the testing to the training.
 
-Embedding the shortest-path distance matrices followed by matching is a standard procedure. Alternatively, one may match the embeddings by CCA or joint MDS, as discussed in \citep{PriebeMarchette2012, FishkindShenPriebe2016}. The advantages of MMSJ mostly lie in joint neighborhood and shortest-path distance; in fact, MMSJ always exhibits significant improvement, no matter which matching method to use. Thus we mainly consider the Procrustes matching for ease of presentation in the paper.
-
-Once the manifolds are learned by MMSJ from the training data, any testing data can be mapped to the learned manifolds, i.e., the shortest-path distance is computed for the testing data, followed by embedding into $\mathbb{R}^{d}$ by MDS and applying the learned Procrustes transformation. Note that joint neighborhood cannot be used for the testing data, as there is no known correspondence. Moreover, embedding the testing data by out-of-sample MDS is a standard technique for MDS and kernel PCA \citep{ScholkopfSmolaMuller1998,BengioEtal2003,TrossetPriebe2008}, which is more efficient than re-embedding all training and testing data. After the testing data are mapped onto the learned manifolds, we may test the matched-ness of any two testing observations from different data sources as in section~\ref{bg}.
+Embedding the shortest-path distance matrices followed by matching is a standard procedure. Alternatively, one may match the embeddings by CCA or joint MDS, as discussed in \citep{PriebeMarchette2012, FishkindShenPriebe2016}. The advantages of MMSJ mostly lie in joint neighborhood and shortest-path distance; in fact, MMSJ always exhibits significant improvement, no matter which matching method to use. Thus we mainly consider the Procrustes matching for ease of presentation in the paper. Note that the testing data are embedded by out-of-sample MDS, which is a standard technique for MDS and kernel PCA \citep{ScholkopfSmolaMuller1998,BengioEtal2003,TrossetPriebe2008}, and more efficient than re-embedding all training and testing data. After the testing data are mapped onto the manifolds by the learned Procrustes matching, we may test the matched-ness of any two testing observations from different data sources as in section~\ref{bg}.
 
 To compare with MMSJ, we use the common procedure that embed each modality separately by MDS / Isomap / LLE / LTSA, followed by Procrustes matching. Note that MDS / Isomap / LLE can all operate directly on a distance matrix, but some nonlinear algorithms like LTSA have to start with the Euclidean data rather than a distance measure. Thus, if only the distance matrices are available, MDS is first used to embed the distance matrices into a Euclidean space $\mathbb{R}^{d'}$ with $d' \geq d$, followed by LTSA to embed into $\mathbb{R}^{d}$, then Procrustes matching.
 
