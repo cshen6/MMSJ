@@ -223,8 +223,8 @@
 \bibinfo{author}{Shen, C.}, \bibinfo{author}{Priebe, C.E.},
   \bibinfo{author}{Maggioni, M.}, \bibinfo{author}{Vogelstein, J.T.},
   \bibinfo{year}{2016}.
-\newblock \bibinfo{title}{Dependence discovery from multimodal data via
-  multiscale graph correlation}.
+\newblock \bibinfo{title}{Revealing the scales of dependency between multiple
+  data modalities}.
 \newblock \bibinfo{journal}{Submitted} .
 %Type = Article
 \bibitem[{Shen et~al.(2014)Shen, Sun, Tang and Priebe}]{ShenSunTangPriebe2014}

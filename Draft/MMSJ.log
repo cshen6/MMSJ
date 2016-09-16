@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  22 AUG 2016 22:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  2 SEP 2016 15:15
 entering extended mode
 **MMSJ.tex
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.tex
@@ -1001,14 +1001,14 @@ Underfull \vbox (badness 3536) has occurred while \output is active []
 File: elsevier-logo.pdf Graphic file (type pdf)
 
 <use elsevier-logo.pdf>
-Package pdftex.def Info: elsevier-logo.pdf used on input line 88.
+Package pdftex.def Info: elsevier-logo.pdf used on input line 85.
 (pdftex.def)             Requested size: 58.97238pt x 64.754pt.
-LaTeX Font Info:    Try loading font information for OT1+txss on input line 88.
+LaTeX Font Info:    Try loading font information for OT1+txss on input line 85.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txss.fd"
 File: ot1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 88.
+(Font)              scaled to size 9.49997pt on input line 85.
 
 Overfull \hbox (1.90001pt too wide) has occurred while \output is active
  []
@@ -1018,121 +1018,120 @@ Overfull \hbox (1.90001pt too wide) has occurred while \output is active
 
 
  <C:/Work/Applications/GitHub/MMSJ/Draft/elsevier-logo.pdf>]
-Underfull \hbox (badness 1237) in paragraph at lines 116--117
+Underfull \hbox (badness 1237) in paragraph at lines 113--114
 []\OT1/txr/m/n/10 Next, for each modal-ity $\OML/txmi/m/it/10 X[]$\OT1/txr/m/n/10 , we cal-cu-late the shortest-
  []
 
 [2]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 136.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 133.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 136.
- [3] <../Figures/Swiss.png, id=31, 809.424pt x 607.068pt>
-File: ../Figures/Swiss.png Graphic file (type png)
- <use ../Figures/Swiss.png>
-Package pdftex.def Info: ../Figures/Swiss.png used on input line 228.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 133.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] <Swiss.png, id=31, 809.424pt x 607.068pt>
+File: Swiss.png Graphic file (type png)
+ <use Swiss.png>
+Package pdftex.def Info: Swiss.png used on input line 223.
 (pdftex.def)             Requested size: 261.0pt x 195.74782pt.
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 228--229
+Overfull \hbox (9.0pt too wide) in paragraph at lines 223--224
  [][] 
  []
 
-[4 <C:/Work/Applications/GitHub/MMSJ/Figures/Swiss.png>]
-Overfull \hbox (4.22pt too wide) in paragraph at lines 275--292
+[4 <C:/Work/Applications/GitHub/MMSJ/Draft/Swiss.png>]
+Overfull \hbox (4.22pt too wide) in paragraph at lines 270--287
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (4.22pt too wide) in paragraph at lines 298--315
+Overfull \hbox (4.22pt too wide) in paragraph at lines 293--310
  [][] 
  []
 
-<../Figures/SwissRoll1.png, id=37, 578.16pt x 433.62pt>
-File: ../Figures/SwissRoll1.png Graphic file (type png)
- <use ../Figures/SwissRoll1.png>
-Package pdftex.def Info: ../Figures/SwissRoll1.png used on input line 321.
+<SwissRoll1.png, id=37, 578.16pt x 433.62pt>
+File: SwissRoll1.png Graphic file (type png)
+ <use SwissRoll1.png>
+Package pdftex.def Info: SwissRoll1.png used on input line 316.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <SwissRoll1Noise.png, id=38, 578.16pt x 433.62pt>
+File: SwissRoll1Noise.png Graphic file (type png)
+
+<use SwissRoll1Noise.png>
+Package pdftex.def Info: SwissRoll1Noise.png used on input line 317.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <SwissRoll2.png, id=39, 578.16pt x 433.62pt>
+File: SwissRoll2.png Graphic file (type png)
+ <use SwissRoll2.png>
+Package pdftex.def Info: SwissRoll2.png used on input line 318.
 (pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
 
-<../Figures/SwissRoll1Noise.png, id=38, 578.16pt x 433.62pt>
-File: ../Figures/SwissRoll1Noise.png Graphic file (type png)
- <use ../Figures/SwissRoll1Noise.png>
-Package pdftex.def Info: ../Figures/SwissRoll1Noise.png used on input line 322.
-(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
-
-<../Figures/SwissRoll2.png, id=39, 578.16pt x 433.62pt>
-File: ../Figures/SwissRoll2.png Graphic file (type png)
- <use ../Figures/SwissRoll2.png>
-Package pdftex.def Info: ../Figures/SwissRoll2.png used on input line 323.
-(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 319--328
+Overfull \hbox (10.0pt too wide) in paragraph at lines 314--323
  [][] 
  []
 
-<../Figures/WikiTETF.png, id=40, 578.16pt x 433.62pt>
-File: ../Figures/WikiTETF.png Graphic file (type png)
- <use ../Figures/WikiTETF.png>
-Package pdftex.def Info: ../Figures/WikiTETF.png used on input line 336.
+<WikiTETF.png, id=40, 578.16pt x 433.62pt>
+File: WikiTETF.png Graphic file (type png)
+ <use WikiTETF.png>
+Package pdftex.def Info: WikiTETF.png used on input line 331.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <WikiTEGE.png, id=41, 578.16pt x 433.62pt>
+File: WikiTEGE.png Graphic file (type png)
+
+<use WikiTEGE.png>
+Package pdftex.def Info: WikiTEGE.png used on input line 332.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <WikiGEGF.png, id=42, 578.16pt x 433.62pt>
+File: WikiGEGF.png Graphic file (type png)
+ <use WikiGEGF.png>
+Package pdftex.def Info: WikiGEGF.png used on input line 333.
 (pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
 
-<../Figures/WikiTEGE.png, id=41, 578.16pt x 433.62pt>
-File: ../Figures/WikiTEGE.png Graphic file (type png)
- <use ../Figures/WikiTEGE.png>
-Package pdftex.def Info: ../Figures/WikiTEGE.png used on input line 337.
-(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
-
-<../Figures/WikiGEGF.png, id=42, 578.16pt x 433.62pt>
-File: ../Figures/WikiGEGF.png Graphic file (type png)
- <use ../Figures/WikiGEGF.png>
-Package pdftex.def Info: ../Figures/WikiGEGF.png used on input line 338.
-(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 334--343
+Overfull \hbox (10.0pt too wide) in paragraph at lines 329--338
  [][] 
  []
 
-<../Figures/WikiTEGESurf1.png, id=43, 578.16pt x 433.62pt>
-File: ../Figures/WikiTEGESurf1.png Graphic file (type png)
- <use ../Figures/WikiTEGESurf1.png>
-Package pdftex.def Info: ../Figures/WikiTEGESurf1.png used on input line 351.
+<WikiTEGESurf1.png, id=43, 578.16pt x 433.62pt>
+File: WikiTEGESurf1.png Graphic file (type png)
+ <use WikiTEGESurf1.png>
+Package pdftex.def Info: WikiTEGESurf1.png used on input line 346.
+(pdftex.def)             Requested size: 208.79681pt x 156.5927pt.
+ <WikiTEGESurf2.png, id=44, 578.16pt x 433.62pt>
+File: WikiTEGESurf2.png Graphic file (type png)
+
+<use WikiTEGESurf2.png>
+Package pdftex.def Info: WikiTEGESurf2.png used on input line 347.
 (pdftex.def)             Requested size: 208.79681pt x 156.5927pt.
 
-<../Figures/WikiTEGESurf2.png, id=44, 578.16pt x 433.62pt>
-File: ../Figures/WikiTEGESurf2.png Graphic file (type png)
- <use ../Figures/WikiTEGESurf2.png>
-Package pdftex.def Info: ../Figures/WikiTEGESurf2.png used on input line 352.
-(pdftex.def)             Requested size: 208.79681pt x 156.5927pt.
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 349--356
+Overfull \hbox (10.0pt too wide) in paragraph at lines 344--351
  [][] 
  []
 
-(C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.bbl [5] [6 <C:/Work/Applications/GitHub/MMSJ/Figures/SwissRoll1.png (PNG co
-py)> <C:/Work/Applications/GitHub/MMSJ/Figures/SwissRoll1Noise.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Figures
-/SwissRoll2.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Figures/WikiTETF.png (PNG copy)> <C:/Work/Applications/Git
-Hub/MMSJ/Figures/WikiTEGE.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Figures/WikiGEGF.png (PNG copy)> <C:/Work/Ap
-plications/GitHub/MMSJ/Figures/WikiTEGESurf1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Figures/WikiTEGESurf2.png
- (PNG copy)>]) [7] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
+[5] [6 <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRoll1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissR
+oll1Noise.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRoll2.png (PNG copy)> <C:/Work/Applications/GitHu
+b/MMSJ/Draft/WikiTETF.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGE.png (PNG copy)> <C:/Work/Applicat
+ions/GitHub/MMSJ/Draft/WikiGEGF.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGESurf1.png (PNG copy)> <C
+:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGESurf2.png (PNG copy)>] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.bbl)
+[7] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
 Here is how much of TeX's memory you used:
- 17136 strings out of 493921
- 325203 string characters out of 3147277
- 376523 words of memory out of 3000000
- 20018 multiletter control sequences out of 15000+200000
+ 17134 strings out of 493921
+ 324764 string characters out of 3147277
+ 376531 words of memory out of 3000000
+ 20017 multiletter control sequences out of 15000+200000
  57710 words of font info for 140 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 55i,15n,56p,1267b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontn
-ame/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
-utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
-imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MMSJ.pdf (7 pages, 2981800 bytes).
+ 55i,15n,56p,1272b,732s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on MMSJ.pdf (7 pages, 2982239 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
