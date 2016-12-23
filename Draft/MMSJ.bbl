@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{47}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -50,6 +50,15 @@
 \newblock \bibinfo{title}{Modern Multidimensional Scaling: theory and
   applications}.
 \newblock \bibinfo{publisher}{Springer-Verlag}.
+%Type = Article
+\bibitem[{Conte et~al.(2004)Conte, Foggia, Sansone and Vento}]{ConteEtAl2004}
+\bibinfo{author}{Conte, D.}, \bibinfo{author}{Foggia, P.},
+  \bibinfo{author}{Sansone, C.}, \bibinfo{author}{Vento, M.},
+  \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Thirty years of graph matching in pattern
+  recognition}.
+\newblock \bibinfo{journal}{International Journal of Pattern Recognition and
+  Artificial Intelligence} \bibinfo{volume}{18}, \bibinfo{pages}{265--298}.
 %Type = Book
 \bibitem[{Cox and Cox(2001)}]{CoxBook}
 \bibinfo{author}{Cox, T.}, \bibinfo{author}{Cox, M.}, \bibinfo{year}{2001}.
@@ -71,6 +80,15 @@
 \newblock \bibinfo{title}{Hessian eigenmaps: New locally linear embedding
   techniques for high-dimensional data}, in: \bibinfo{booktitle}{Proceedings of
   the National Academy of Arts and Sciences}, pp. \bibinfo{pages}{5591--5596}.
+%Type = Inproceedings
+\bibitem[{Fiori et~al.(2013)Fiori, Sprechmann, Vogelstein, Musé and
+  Sapiro}]{FioriEtAl2013}
+\bibinfo{author}{Fiori, M.}, \bibinfo{author}{Sprechmann, P.},
+  \bibinfo{author}{Vogelstein, J.}, \bibinfo{author}{Musé, P.},
+  \bibinfo{author}{Sapiro, G.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Robust multimodal graph matching: Sparse coding meets
+  graph matching}, in: \bibinfo{booktitle}{Advances in Neural Information
+  Processing Systems}, pp. \bibinfo{pages}{127--135}.
 %Type = Article
 \bibitem[{Fishkind et~al.(2016)Fishkind, Shen, Park and
   Priebe}]{FishkindShenPriebe2016}
@@ -118,11 +136,25 @@
 \newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine
   Intelligence} \bibinfo{volume}{27}, \bibinfo{pages}{328--340}.
 %Type = Article
+\bibitem[{Hofmann et~al.(2008)Hofmann, Scholkopf and Smola}]{HofmannEtAl2008}
+\bibinfo{author}{Hofmann, T.}, \bibinfo{author}{Scholkopf, B.},
+  \bibinfo{author}{Smola, A.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Kernel methods in machine learning}.
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{36},
+  \bibinfo{pages}{1171--1220}.
+%Type = Article
 \bibitem[{Hotelling(1936)}]{Hotelling1936}
 \bibinfo{author}{Hotelling, H.}, \bibinfo{year}{1936}.
 \newblock \bibinfo{title}{Relations between two sets of variates}.
 \newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{28},
   \bibinfo{pages}{321--377}.
+%Type = Inproceedings
+\bibitem[{Jiang et~al.(2008)Jiang, Zheng, Toga and Tu}]{JJ2008}
+\bibinfo{author}{Jiang, J.}, \bibinfo{author}{Zheng, S.},
+  \bibinfo{author}{Toga, A.}, \bibinfo{author}{Tu, Z.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Learning based coarse-to-fine image registration},
+  in: \bibinfo{booktitle}{Proceedings of IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}.
 %Type = Book
 \bibitem[{Jolliffe(2002)}]{JolliffePCABook}
 \bibinfo{author}{Jolliffe, I.T.}, \bibinfo{year}{2002}.
@@ -223,8 +255,8 @@
 \bibinfo{author}{Shen, C.}, \bibinfo{author}{Priebe, C.E.},
   \bibinfo{author}{Maggioni, M.}, \bibinfo{author}{Vogelstein, J.T.},
   \bibinfo{year}{2016}.
-\newblock \bibinfo{title}{Revealing the scales of dependency between multiple
-  data modalities}.
+\newblock \bibinfo{title}{Discovering relationships across disparate data
+  modalities}.
 \newblock \bibinfo{journal}{Submitted} .
 %Type = Article
 \bibitem[{Shen et~al.(2014)Shen, Sun, Tang and Priebe}]{ShenSunTangPriebe2014}

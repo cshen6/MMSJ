@@ -48,7 +48,7 @@ if ~isfield(options,'nonlinear')
     options.nonlinear = 0; %Specify embedding algorithm. 0 for MDS/PCA, 1 for Isomap, 2 for LLE.
 end
 if ~isfield(options,'match')
-    options.match = 1; %Specify matching technique. 0 for MDS/PCA, 1 for Isomap, 2 for LLE.
+    options.match = 1; %Specify matching technique. 0 for joint MDS, 1 for Procrustes, 2 for CCA.
 end
 if ~isfield(options,'jointSelection')
     options.jointSelection = 1; %Specify joint selection of neighborhood or not in nonlinear embedding. 0 for separate neighbor, otherwise do joint.
