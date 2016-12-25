@@ -90,52 +90,6 @@ scatter(sol(1,n+tesn+1:n+2*tesn),sol(2,n+tesn+1:n+2*tesn),30,cc(n+tesn+1:n+2*tes
 scatter(sol(1,2*n+3*tesn+1:2*n+4*tesn),sol(2,2*n+3*tesn+1:2*n+4*tesn),30,cc(n+2*tesn+1:n+3*tesn),'+');
 hold off
 %%%
-%%%
-%Two data matching
-clear
-load SwissRoll2.mat
-%dis=[X1P Y1P];%nonlinear vs linear
-%Y_data=[Y_data' zeros(1, N)']';
-%%linear original vs LLE embedded
-%dis=[Y1P Y3P];
-%disEuc=[Y_data Y_data_LLE];
-%%end
-% load Sim_Swiss.mat
-% load Sim_SwissBroken.mat
-% load Sim_Twinpeaks.mat
-% load Sim_Inter.mat
-Z_data=[cos(Y_data(1,:)).*sin(Y_data(2,:));sin(Y_data(1,:)).*sin(Y_data(2,:));cos(Y_data(1,:))];
-%disEuc=[X_data Y_data];
-disEuc=[X_data Z_data];
-dis=squareform(pdist(disEuc'));
-ss=size(dis,2)/2;
-dis=[dis(1:ss, 1:ss) dis(ss+1:end, ss+1:end)];
-%pre-process end
-tran=1000;numData=2;tesn=100;K=10;iter=-1;reps=100;scale=1;dim=2;
-options = struct('nonlinear',0,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[sol,power,dCorr]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Original Distance')
-options = struct('nonlinear',1,'match',2,'neighborSize',K,'jointSelection',1,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solIsoJ,powerIsoJ,dCorrIsoJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Joint Isomap')
-options = struct('nonlinear',1,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solIsoS,powerIsoS, dCorrIsoS]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Separate Isomap')
-options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',1,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLLEJ,powerLLEJ, dCorrLLEJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Joint LLE')
-options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLLES,powerLLES, dCorrLLES]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Separate LLE')
-options = struct('nonlinear',3,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLTSA,powerLTSA]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-%title('Matching Test Using Joint LLE')
-options = struct('nonlinear',4,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLAP,powerLAP]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-options = struct('nonlinear',5,'match',2,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solHLLE,powerHLLE]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-%Seeded trial
-[accIsoJ,acc,accIsoS,accLLES,accLTSA]=ResultsAcc(solIsoJ,sol,solIsoS,solLLES,solLTSA,numData,tran,tesn,reps);
 
 %title('Matching Test Using Separate LLE')
 save('ResultMatchingSwissRoll2','sol','power','solIsoJ','powerIsoJ','solIsoS','powerIsoS','solLLEJ','powerLLEJ','solLLES','powerLLES','solLAP','powerLAP', 'solLTSA','powerLTSA', 'solHLLE','powerHLLE','dCorr','dCorrIsoJ','dCorrIsoS','dCorrLLEJ','dCorrLLES','tran','dim','tesn','K','iter','reps')
@@ -221,68 +175,8 @@ ylabel('Testing Power at Type 1 Level 0.05')
 %title('Matching Test Power with Increasing Noise at Type 1 Level 0.05')
 ylim([0,1])
 
-%Wiki Data
-clear;
-%load ResultMatchingWikiTETF.mat
-load Wiki_Data.mat
-tran=500;dim=10;tesn=100;K=20;numData=2;reps=100;iter=-1;scale=1;m=50;
-dis=[TE TF];
-%clear;
-clear
-load('BrainHippoShape.mat')
-dis=[LMLS, LMRS];
-tran=70;dim=3;tesn=10;K=12;numData=2;reps=100;iter=-1;scale=1;m=10;
-y=squareform(pdist(Label));
-%y=(y>0)+1;
-y=y+1;
-for i=1:n
-    y(i,i)=0;
-end
-dis=[LMLS,y];
-%
-clear
-load('BrainCP.mat')
-dis=[distC, distP];
-tran=30;dim=5;tesn=4;K=5;numData=2;reps=100;iter=-1;scale=1;m=5;
-%
-%
-% political graphs
-clear
-load('PoliticalNetwork.mat')
-dis=[squareform(pdist(Adj)), squareform(pdist(Label))];
-tran=22;dim=2;tesn=4;K=5;numData=2;reps=100;iter=-1;scale=1;m=dim;mm=2;
-%
-ss=size(dis,2)/numData;
-TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
-TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
-disEuc=[TEEuc TFEuc];
-dis=[squareform(pdist(TEEuc')), squareform(pdist(Label))];
-%dis=[squareform(pdist(TEEuc')) squareform(pdist(TFEuc'))];
-options = struct('nonlinear',0,'match',mm,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[sol,power, dCorr]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test using Original Distance')
-options = struct('nonlinear',1,'match',mm,'neighborSize',K,'jointSelection',1,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solIsoJ,powerIsoJ, dCorrIsoJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test using Joint Isomap')
-options = struct('nonlinear',1,'match',mm,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solIsoS,powerIsoS, dCorrIsoS]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test using Separate Isomap')
-options = struct('nonlinear',2,'match',mm,'neighborSize',K,'jointSelection',1,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLLEJ,powerLLEJ, dCorrLLEJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Joint LLE')
-options = struct('nonlinear',2,'match',mm,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLLES,powerLLES, dCorrLLES]=MatchingTest(dis,dim,tran,tesn,reps,options);
-%title('Matching Test Using Separate LLE')
-%LTSA and Laplacian
-%options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-%[solLLE,powerLLE]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-options = struct('nonlinear',3,'match',mm,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLTSA,powerLTSA]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-options = struct('nonlinear',4,'match',mm,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-[solLAP,powerLAP]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-%options = struct('nonlinear',5,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-%[solHLLE,powerHLLE]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-save('ResultMatchingWikiTETF20', 'sol','power','solIsoJ','powerIsoJ','solIsoS','powerIsoS','solLLEJ','powerLLEJ','solLLES','powerLLES','solLTSA','powerLTSA','solLAP','powerLAP','dCorr','dCorrIsoJ','dCorrIsoS','dCorrLLEJ','dCorrLLES','tran','m','dim','tesn','K','iter','reps','numData')
+
+
 sol=solIsoJ;
 [p0,e0,~]=plotVelocity([sol(:,1:tran) sol(:,tran+2*tesn+1:2*tran+2*tesn)],options.numData);%power
 [p1,e1,~]=plotVelocity([sol(:,tran+1:tran+tesn) sol(:,2*tran+2*tesn+1:2*tran+3*tesn)],options.numData);%power
@@ -315,28 +209,6 @@ legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
 xlabel('Type 1 Error Level')
 ylabel('Testing Power')
 ylim([0 1])
-%three data
-clear;
-load Wiki_Data.mat
-dis=[TE TF GE];
-tran=500;dim=10;tesn=100;K=20;numData=3;reps=100;iter=-1;scale=1;m=50;
-ss=size(dis,2)/numData;
-TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
-TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
-GEEuc=SMDS(dis(1:ss, 2*ss+1:3*ss),m,0);
-disEuc=[TEEuc TFEuc GEEuc];
-%title('Wikipedia TE and TF and GE Matching Test Using Original Distance')
-%four data
-clear;
-load Wiki_Data.mat
-dis=[TE TF GE GF];
-tran=500;dim=10;tesn=100;K=20;numData=4;reps=100;iter=-1;scale=1;m=50;
-ss=size(dis,2)/numData;
-TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
-TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
-GEEuc=SMDS(dis(1:ss, 2*ss+1:3*ss),m,0);
-GFEuc=SMDS(dis(1:ss, 3*ss+1:4*ss),m,0);
-disEuc=[TEEuc TFEuc GEEuc GFEuc];
 %embedding check
 ind=1;
 [p,e1,e2]=plotVelocity([sol(:,tran+1:tran+tesn,ind) sol(:,2*tran+2*tesn+1:2*tran+3*tesn,ind)],2);%matched testing
@@ -380,6 +252,7 @@ ylabel('Embedding Dimension')
 %zlabel('Inference Power')
 title('MMSJ Matching Power Heat-map')
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Wiki Data
 clear;
 load Wiki_Data.mat

@@ -1,4 +1,4 @@
-function [sol,power, dCorr]=MatchingTest(dis,dim,tran,tesn,reps,options)
+function [sol,acc,power, dCorr]=MatchingTest(dis,dim,tran,tesn,reps,options)
 %OOS inference test on real data, using both global and local
 %dissimilarities (transformed by ISOMAP)
 %GE and GF are the dissimilarities.
@@ -61,11 +61,12 @@ div=20;
 %Initialization
 x=0:1/div:1;
 seqDiv=div+1;
-power=zeros(seqDiv,reps,3);
+power=zeros(seqDiv,3);
 %sol=zeros(dim(1),n*numData,3,reps);
 dCorr=zeros(reps,1);
 %Start testing loop
 index=[];
+acc=0;
 for r=1:reps
    %r
     if per==0
@@ -81,7 +82,7 @@ for r=1:reps
                 [sol, dCorr(r)]=ManifoldMatching(disO,dim(dind),options1);
                 disO=[squareform(pdist(sol(:, 1:n)')) squareform(pdist(sol(:, n+1:2*n)'))];
             end
-            power(:,r,3)=plotPower(sol,numData,tesn,div);
+            power(:,3)=power(:,3)+plotPower(sol,numData,tesn,div)/reps;
         else
             for j=1:options.match+1
                 options1.match=j-1;
@@ -89,9 +90,10 @@ for r=1:reps
                     [sol, dCorr(r)]=ManifoldMatching(disO,dim(dind),options1);
                     disO=[squareform(pdist(sol(:, 1:n)')) squareform(pdist(sol(:, n+1:2*n)'))];
                 end
-                power(:,r,j)=plotPower(sol,numData,tesn,div);
+                power(:,j)=power(:,j)+plotPower(sol,numData,tesn,div)/reps;
             end
         end
+        acc=acc+ResultsAcc(sol,numData,tran,tesn)/reps;
     catch
         index = [index r];
         disp('error, continue to next');
