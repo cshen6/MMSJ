@@ -1,17 +1,3 @@
-% function [accIsoJ,acc,accIsoS,accLLES,accLTSA]=ResultsAcc(solIsoJ,sol,solIsoS,solLLES,solLTSA,numData,tran,tesn,reps)
-
-% function [accIsoJ,acc,accIsoS,accLLES,accLTSA]=ResultsAcc(solIsoJ,sol,solIsoS,solLLES,solLTSA,numData,tran,tesn,reps)
-% 
-% accIsoJ=accFind(solIsoJ,numData,tran,tesn,reps);
-% acc=accFind(sol,numData,tran,tesn,reps);
-% accIsoS=accFind(solIsoS,numData,tran,tesn,reps);
-% if solLLES~=0
-% accLLES=accFind(solLLES,numData,tran,tesn,reps);
-% end
-% if solLTSA~=0
-% accLTSA=accFind(solLTSA,numData,tran,tesn,reps);
-% end
-
 function acc=ResultsAcc(solT,numData,tran,tesn)
 acc=0;
 sol=zeros(size(solT,1),tesn,numData);

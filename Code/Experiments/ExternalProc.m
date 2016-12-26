@@ -31,7 +31,6 @@ map1=cmap;
 %figure1-4
 set(groot,'defaultAxesColorOrder',map1);
 
-
 %Matching Power New!
 %Generate new data
 n=5000;
@@ -91,92 +90,6 @@ scatter(sol(1,2*n+3*tesn+1:2*n+4*tesn),sol(2,2*n+3*tesn+1:2*n+4*tesn),30,cc(n+2*
 hold off
 %%%
 
-%title('Matching Test Using Separate LLE')
-save('ResultMatchingSwissRoll2','sol','power','solIsoJ','powerIsoJ','solIsoS','powerIsoS','solLLEJ','powerLLEJ','solLLES','powerLLES','solLAP','powerLAP', 'solLTSA','powerLTSA', 'solHLLE','powerHLLE','dCorr','dCorrIsoJ','dCorrIsoS','dCorrLLEJ','dCorrLLES','tran','dim','tesn','K','iter','reps')
-sol=solIsoJ;
-[p1,e1,~]=plotVelocity([sol(:,1:tran) sol(:,tran+2*tesn+1:tran+3*tesn)],options.numData);%power
-[p1,e1,~]=plotVelocity([sol(:,tran+1:tran+tesn) sol(:,2*tran+2*tesn+1:2*tran+3*tesn)],options.numData);%power
-[p2,e2,~]=plotVelocity([sol(:,tran+tesn+1:tran+2*tesn) sol(:,2*tran+3*tesn+1:2*tran+4*tesn)],options.numData);%power
-%linear CCA matching plot
-x=0:0.05:1;
-indM=2;
-plot(x,mean(powerIsoJ(:,:,indM),2),'.-', x,mean(power(:,:,indM),2),'.:', x,mean(powerIsoS(:,:,indM),2),'.--',x,mean(powerLLES(:,:,indM),2),'.--',x,mean(powerLTSA(:,:,indM),2),'.--', 'LineWidth',2);
-legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
-xlabel('Type 1 Error Level')
-ylabel('Testing Power')
-%title('CCA Matching')
-ylim([0 1])
-%matching nonlinear and linear datasets for Robustness, just change the
-clear;
-load('SwissRoll.mat', 'X_data','Y_data','per','noiseN');
-tran=1000;numData=2;dim=2;tesn=100;K=10;iter=-1;reps=10;scale=3; div=20;
-p=zeros(reps,3,div+1);pIsoJ=zeros(reps,3,div+1);pIsoS=zeros(reps,3,div+1);pLLEJ=zeros(reps,3,div+1);pLLES=zeros(reps,3,div+1);pLTSA=zeros(reps,3,div+1);pLAP=zeros(reps,3,div+1);pHLLE=zeros(reps,3,div+1);pLLE=zeros(reps,3,div+1);
-dC=zeros(reps,div+1); dCIsoJ=zeros(reps,div+1); dCIsoS=zeros(reps,div+1); dCLLEJ=zeros(reps,div+1); dCLLES=zeros(reps,div+1); 
-noiseN = mvnrnd(zeros(5000,2),eye(2,2)); 
-for i=0:15
-    i
-    X1P=squareform(pdist((X_data(:,1:5000))'));
-    Y1PP=squareform(pdist((Y_data(:,1:5000)+(i)*noiseN')'));
-    %Y1PP=squareform(pdist((sin(Y_data(:,1:5000))+(i)*noiseN')'));
-    dis=[X1P, Y1PP];
-    %Y1PP=[(sin(Y_data(:,1:5000))+(i)*noiseN')' zeros(1, 5000)']';
-    Y1PP=Y_data(:,1:5000)+(i)*noiseN';
-    Y1PP=[Y1PP;zeros(1,5000)];
-    disEuc=[X_data(:,1:5000) Y1PP];
-    options = struct('nonlinear',0,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [sol,power, dCorr]=MatchingTest(dis,dim,tran,tesn,reps,options);
-
-    options = struct('nonlinear',1,'match',2,'neighborSize',K,'jointSelection',1,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solIsoJ,powerIsoJ, dCorrIsoJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-
-    options = struct('nonlinear',1,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solIsoS,powerIsoS, dCorrIsoS]=MatchingTest(dis,dim,tran,tesn,reps,options);
-
-    options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',1,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solLLEJ,powerLLEJ, dCorrLLEJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-
-    options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solLLES,powerLLES, dCorrLLES]=MatchingTest(dis,dim,tran,tesn,reps,options);
-    
-    %options = struct('nonlinear',2,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    %[solLLE,powerLLE]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-    
-    options = struct('nonlinear',3,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solLTSA,powerLTSA]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-
-    options = struct('nonlinear',4,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    [solLAP,powerLAP]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-    
-    %options = struct('nonlinear',5,'match',2,'neighborSize',K,'jointSelection',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn); 
-    %[solHLLE,powerHLLE]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
-
-    p(:,:,i+1)=power(2,:,:); 
-    pIsoJ(:,:,i+1)=powerIsoJ(2,:,:); 
-    pIsoS(:,:,i+1)=powerIsoS(2,:,:); 
-    pLLEJ(:,:,i+1)=powerLLEJ(2,:,:); pLLES(:,:,i+1)=powerLLES(2,:,:);
-    pLTSA(:,:,i+1)=powerLTSA(2,:,:); pLAP(:,:,i+1)=powerLAP(2,:,:);
-    %pHLLE(:,:,i+1)=powerHLLE(2,:,:); pLLE(:,:,i+1)=powerLLE(2,:,:);
-    dC(:,i+1)=dCorr;
-    dCIsoJ(:,i+1)=dCorrIsoJ;
-    dCIsoS(:,i+1)=dCorrIsoS;
-    dCLLEJ(:,i+1)=dCorrLLEJ;dCLLES(:,i+1)=dCorrLLES;
-    if i==0
-        save('ResultMatchingSwissRoll1','sol','power','solIsoJ','powerIsoJ','solIsoS','powerIsoS','solLLEJ','powerLLEJ','solLLES','powerLLES','solLAP','powerLAP', 'solLTSA','powerLTSA', 'dCorr','dCorrIsoJ','dCorrIsoS','dCorrLLEJ','dCorrLLES','tran','dim','tesn','K','iter','reps')
-    end
-    save('ResultMatchingSwissRoll1Noise','p','pIsoJ','pIsoS','pLLEJ','pLLES','pLTSA','pLAP','dC','dCIsoJ','dCIsoS','dCLLEJ','dCLLES','tran','dim','tesn','K','iter','reps','noiseN')
-end
-div=11;
-x=0:(div-1);
-method=2;
-plot(x,reshape(mean(pIsoJ(:,method,1:div),1),1,div),'.-', x,reshape(mean(p(:,method,1:div),1),1,div),'.:', x,reshape(mean(pIsoS(:,method,1:div),1),1,div),'.--',x,reshape(mean(pLLES(:,method,1:div),1),1,div),'.--',x,reshape(mean(pLTSA(:,method,1:div),1),1,div),'.--', 'LineWidth',2);
-legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
-xlabel('Noise Level')
-ylabel('Testing Power at Type 1 Level 0.05')
-%title('Matching Test Power with Increasing Noise at Type 1 Level 0.05')
-ylim([0,1])
-
-
-
 sol=solIsoJ;
 [p0,e0,~]=plotVelocity([sol(:,1:tran) sol(:,tran+2*tesn+1:2*tran+2*tesn)],options.numData);%power
 [p1,e1,~]=plotVelocity([sol(:,tran+1:tran+tesn) sol(:,2*tran+2*tesn+1:2*tran+3*tesn)],options.numData);%power
@@ -186,29 +99,6 @@ LDAModel = fitcdiscr(sol(:,1:tran)',Label(1:tran),'DiscrimType','linear');%'quad
 testLabel=predict(LDAModel,sol(:,tran+1:tran+tesn)');
 errorLDA=mean(Label~=testLabel);
 %YouTube
-%ASB*AVS, ASB*ASS, ASS*AVS, ASB* VHHS, ASB*VCH, replace AVS by?
-%Show Data
-indM=2;reps=100;
-max(mean(power(indM,1:reps,:),2))
-max(mean(powerIsoJ(indM,1:reps,:),2))
-max(mean(powerIsoS(indM,1:reps,:),2))
-max(mean(powerLLEJ(indM,1:reps,:),2))
-max(mean(powerLLES(indM,1:reps,:),2))
-max(mean(powerLAP(indM,1:reps,:),2))
-max(mean(powerLTSA(indM,1:reps,:),2))
-mean(dCorr)
-mean(dCorrIsoJ)
-mean(dCorrIsoS)
-mean(dCorrLLEJ)
-mean(dCorrLLES)
-%CCA Matching Plot
-x=0:0.05:1;
-indM=2;
-plot(x,mean(powerIsoJ(:,:,indM),2),'.-', x,mean(power(:,:,indM),2),'.:', x,mean(powerIsoS(:,:,indM),2),'.--',x,mean(powerLLES(:,:,indM),2),'.--',x,mean(powerLTSA(:,:,indM),2),'.--', 'LineWidth',2);
-legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
-xlabel('Type 1 Error Level')
-ylabel('Testing Power')
-ylim([0 1])
 %embedding check
 ind=1;
 [p,e1,e2]=plotVelocity([sol(:,tran+1:tran+tesn,ind) sol(:,2*tran+2*tesn+1:2*tran+3*tesn,ind)],2);%matched testing

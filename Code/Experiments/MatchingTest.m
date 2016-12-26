@@ -54,14 +54,12 @@ end
 per=options.permutation;
 numData=options.numData;
 n=tran+2*tesn;
-options1=options;
-%options1.oos=0;
 
 div=20;
 %Initialization
-x=0:1/div:1;
+% x=0:1/div:1;
 seqDiv=div+1;
-power=zeros(seqDiv,3);
+power=zeros(seqDiv,1);
 %sol=zeros(dim(1),n*numData,3,reps);
 dCorr=zeros(reps,1);
 %Start testing loop
@@ -76,24 +74,10 @@ for r=1:reps
     end
     [disO,~,~]=GetRealData(dis,0,tran,tesn,options);
     try
-        if options.match==3
-            options1.match=1;
-            for dind=1:length(dim)
-                [sol, dCorr(r)]=ManifoldMatching(disO,dim(dind),options1);
-                disO=[squareform(pdist(sol(:, 1:n)')) squareform(pdist(sol(:, n+1:2*n)'))];
-            end
-            power(:,3)=power(:,3)+plotPower(sol,numData,tesn,div)/reps;
-        else
-            for j=1:options.match+1
-                options1.match=j-1;
-                for dind=1:length(dim)
-                    [sol, dCorr(r)]=ManifoldMatching(disO,dim(dind),options1);
-                    disO=[squareform(pdist(sol(:, 1:n)')) squareform(pdist(sol(:, n+1:2*n)'))];
-                end
-                power(:,j)=power(:,j)+plotPower(sol,numData,tesn,div)/reps;
-            end
-        end
+        [sol, dCorr(r)]=ManifoldMatching(disO,dim,options);
+        power=power+plotPower(sol,numData,tesn,div)/reps;
         acc=acc+ResultsAcc(sol,numData,tran,tesn)/reps;
+        power=power(2);
     catch
         index = [index r];
         disp('error, continue to next');
