@@ -1,4 +1,4 @@
-\begin{thebibliography}{47}
+\begin{thebibliography}{50}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,20 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Adelstein et~al.(2011)Adelstein, Shehzad, Mennes, DeYoung, Zuo,
+  Kelly, Margulies, Bloomfield, Gray, Castellanos and
+  Milham}]{AdelsteinEtAl2011}
+\bibinfo{author}{Adelstein, J.}, \bibinfo{author}{Shehzad, Z.},
+  \bibinfo{author}{Mennes, M.}, \bibinfo{author}{DeYoung, C.},
+  \bibinfo{author}{Zuo, X.}, \bibinfo{author}{Kelly, C.},
+  \bibinfo{author}{Margulies, D.}, \bibinfo{author}{Bloomfield, A.},
+  \bibinfo{author}{Gray, J.}, \bibinfo{author}{Castellanos, F.},
+  \bibinfo{author}{Milham, M.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Personality is reflected in the brain's intrinsic
+  functional architecture}.
+\newblock \bibinfo{journal}{PLoS ONE} \bibinfo{volume}{6},
+  \bibinfo{pages}{e27633}.
 %Type = Techreport
 \bibitem[{Bach and Jordan(2005)}]{BachJordan2005}
 \bibinfo{author}{Bach, F.R.}, \bibinfo{author}{Jordan, M.I.},
@@ -60,10 +74,36 @@
 \newblock \bibinfo{journal}{International Journal of Pattern Recognition and
   Artificial Intelligence} \bibinfo{volume}{18}, \bibinfo{pages}{265--298}.
 %Type = Book
+\bibitem[{{Costa, {\&} McCrae}(1992)}]{Costa1992}
+\bibinfo{author}{{Costa, {\&} McCrae}, R.R.}, \bibinfo{year}{1992}.
+\newblock \bibinfo{title}{{Neo PI-R professional manual}}. volume
+  \bibinfo{volume}{396}.
+\newblock \DOIprefix\doi{10.1037/0003-066X.52.5.509}.
+%Type = Book
 \bibitem[{Cox and Cox(2001)}]{CoxBook}
 \bibinfo{author}{Cox, T.}, \bibinfo{author}{Cox, M.}, \bibinfo{year}{2001}.
 \newblock \bibinfo{title}{Multidimensional Scaling}.
 \newblock \bibinfo{publisher}{Chapman and Hall}.
+%Type = Article
+\bibitem[{Craddock et~al.(2015)Craddock, Sikka, Cheung, Khanuja, Ghosh, Yan,
+  Li, Lurie, Vogelstein, Burns, Colcombe, Mennes, Kelly, {Di Martino},
+  Castellanos and Milham}]{CPAC2015}
+\bibinfo{author}{Craddock, C.}, \bibinfo{author}{Sikka, S.},
+  \bibinfo{author}{Cheung, B.}, \bibinfo{author}{Khanuja, R.},
+  \bibinfo{author}{Ghosh, S.S.}, \bibinfo{author}{Yan, C.},
+  \bibinfo{author}{Li, Q.}, \bibinfo{author}{Lurie, D.},
+  \bibinfo{author}{Vogelstein, J.}, \bibinfo{author}{Burns, R.},
+  \bibinfo{author}{Colcombe, S.}, \bibinfo{author}{Mennes, M.},
+  \bibinfo{author}{Kelly, C.}, \bibinfo{author}{{Di Martino}, A.},
+  \bibinfo{author}{Castellanos, F.X.}, \bibinfo{author}{Milham, M.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{{Towards Automated Analysis of Connectomes: The
+  Configurable Pipeline for the Analysis of Connectomes (C-PAC)}}.
+\newblock \bibinfo{journal}{Frontiers in Neuroinformatics}
+  \bibinfo{volume}{42}.
+\newblock \URLprefix
+  \url{http://www.frontiersin.org/neuroinformatics/10.3389/conf.fninf.2013.09.00042/full},
+  \DOIprefix\doi{10.3389/conf.fninf.2013.09.00042}.
 %Type = Article
 \bibitem[{Deerwester et~al.(1990)Deerwester, Dumais, Landauer, Furnas and
   Harshman}]{DeerwesterDumais1990}

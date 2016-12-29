@@ -68,6 +68,7 @@ power=zeros(seqDiv,1);
 %Start testing loop
 index=[];
 acc=0;
+sol=0;
 for r=1:reps
     %r
     if per==0
@@ -78,14 +79,15 @@ for r=1:reps
     [disO,~,~]=GetRealDataEuc(dis,0,tran,tesn,options);
     try
         sol=ManifoldMatchingEuc(disO,dim,options);
-        power=power+plotPower(sol,numData,tesn,div)/reps;
-        acc=acc+ResultsAcc(sol,numData,tran,tesn)/reps;
-        power=power(2);
+        power=power+plotPower(sol,numData,tesn,div);
+        acc=acc+ResultsAcc(sol,numData,tran,tesn);
     catch
         index = [index r];
         disp('error, continue to next');
     end
 end
+power=power/(reps-length(index));
+acc=acc/(reps-length(index));
 %End testing
 
 % %Start plot

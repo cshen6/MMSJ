@@ -358,6 +358,42 @@ $(TF, GE)$ & $\textbf{0.4464}$  & $0.2114$ & $0.3595$ & $0.0943$ & $0.1064$\\
 \label{figRealSurf}
 \end{figure*}
 
+\subsection{Brain Activity vs Personality}
+\label{wikiReal}
+This experiment investigates whether there is any dependency between brain activity and personality.
+Adelstein et al. \cite{AdelsteinEtAl2011} were able to detect dependence between certain regions and dimensions of personality, but lacked the tools to test for dependence of the whole brain activity against all five dimensions of personality. 
+This dataset consists of $n=42$ subjects, each with  $197$ time-steps of resting-state functional MRI activity, as well as the subject's five-factor personality trait as quantified by  the NEO Personality Inventory-Revised  \cite{Costa1992}. 
+For the brain activity modality, we derived the following comparison function. For each scan, (i) 
+run the Configurable Pipeline for the Analysis of Connectomes (C-PAC) pipeline \cite{CPAC2015} to process the raw brain images yielding a parcellation into $197$ regions of interest, 
+(ii) run a spectral analysis on each region, (iii) bandpass and normalize it to sum to one, and (iv) calculate the Kullback-Leibler divergence across regions to obtain a similarity matrix across comparing all regions.  Then, use the normalized Hellinger distance to compute distances between each subject. 
+For the five-factor personality modality, we  used the Euclidean distance.
+% 
+%Figure \ref{f:real}{\color{magenta}A}  shows that many local scales yield significant p-values ($\approx 0.01$), whereas the global scale fails to detect this significant dependence. In fact, all previously proposed global dependence tests under consideration (\Mantel, \Dcorr, \Mcorr, or \Hhg) fail to detect dependence at a significance level of $0.05$ (see Table \ref{t:real}), and only \Mgc~provides insight into the scales of dependence.
+
+
+\begin{Table}
+\centering
+\captionof{table}{Wikipedia Features Matching Ratio}
+\label{table:wikiAcc}%
+\begin{tabular}{|c||c|c|c|c|c|}
+\hline
+Modalities & MMSJ & MDS & Isomap & LLE & LTSA \\
+\hline
+$(TE, TF)$ & $\textbf{0.2942}$  & $0.2546$ & $0.2003$ & $0.1265$ & $0.0491$\\
+\hline
+$(TE, GE)$ & $\textbf{0.1209}$  & $0.0675$ & $0.0866$ & $0.0143$ & $0.0260$\\
+\hline
+$(TF, GF)$ & $\textbf{0.0624}$  & $0.0419$ & $0.0522$ & $0.0134$ & $0.0144$\\
+\hline
+$(GE, GF)$ & $\textbf{0.1347}$  & $0.1280$ & $0.1081$ & $0.0157$ & $0.0236$\\
+\hline
+$(TE, GF)$ & $\textbf{0.0677}$  & $0.0429$ & $0.0560$ & $0.0132$ & $0.0138$\\
+\hline
+$(TF, GE)$ & $\textbf{0.0946}$  & $0.0545$ & $0.0698$ & $0.0132$ & $0.0238$\\
+\hline
+\end{tabular}
+\end{Table}
+
 \section{Concluding Remarks}
 \label{conclu}
 In summary, we propose a nonlinear manifold matching algorithm using shortest-path distance and joint neighborhood selection. The algorithm is straightforward to implement, and achieves superior and robust performance. It is able to significantly improve the testing power and matching ratio when matching modalities of distinct geometries, and is robust against noise and model selection. Our experiments indicate that the shortest-path distance and joint neighborhood selection are two key catalysts behind the improvement of the matching performance.

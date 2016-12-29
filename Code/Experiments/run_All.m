@@ -1,10 +1,10 @@
-function run_All()
+function run_All(matchingMethod)
 
-
+if nargin<1
 matchingMethod=1;
+end
 tran=1000;
-reps=10;
-run_Swiss_Roll(matchingMethod,tran,reps);
-tran=500;
-run_Swiss_Roll_Noise(matchingMethod,tran,reps);
-run_Swiss_Roll_Outlier(matchingMethod,tran,reps);
+reps=20;
+run_Swiss_Roll(1,matchingMethod,tran,reps);
+run_Swiss_Roll(2,matchingMethod,tran,reps);
+run_Swiss_Roll(3,matchingMethod,tran,reps);

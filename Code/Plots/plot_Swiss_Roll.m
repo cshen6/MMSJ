@@ -1,7 +1,7 @@
 function plot_Swiss_Roll(matchingMethod)
 
 if nargin<1
-    matchingMethod=2;
+    matchingMethod=1;
 end
 fpath = mfilename('fullpath');
 fpath=strrep(fpath,'\','/');
@@ -27,24 +27,43 @@ for i=1:3
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'Results.mat');
             xla='Number of Training Data';
             figureName='SwissRoll';
+            tit='Swiss Roll';
         case 2
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'NoiseResults.mat');
             xla='Noise Level';
             figureName='SwissRollNoise';
+            tit='Swiss Roll with Noise';
         case 3
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'OutlierResults.mat');
             xla='Percentage of Outliers';
             figureName='SwissRollOutlier';
+            tit='Swiss Roll with Outliers';
     end
     
     load(fileName);
     x=1:length(numRange);
     
     ax=figure;
-    plot(x,accMMSJ,'.-', x,accMDS,'.:', x,accIso,'.--',x,accLLE,'.--',x,accLTSA,'.--', 'LineWidth',2);
+    plot(x,accMMSJ,'.-', x,accMDS,'.:', x,accISO,'.--',x,accLLE,'.--',x,accLTSA,'.--', 'LineWidth',2);
     legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
+    title(tit,'FontSize',18);
     xlabel(xla)
     ylabel('Matching Ratio')
     ylim([0 1])
-    saveas(ax,figureName,'pdf')
+    xlim([1 length(numRange)])
+    set(gca,'FontSize',16);
+    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0,0.5,1]); 
+    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Acc')),'pdf')
+    
+    ax=figure;
+    plot(x,powerMMSJ(:,2),'.-', x,powerMDS(:,2),'.:', x,powerISO(:,2),'.--',x,powerLLE(:,2),'.--',x,powerLTSA(:,2),'.--', 'LineWidth',2);
+    legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
+    title(tit,'FontSize',18);
+    xlabel(xla)
+    ylabel('Testing Power')
+    ylim([0 1])
+    xlim([1 length(numRange)])
+    set(gca,'FontSize',16);
+    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0,0.5,1]); 
+    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Power')),'pdf')
 end
