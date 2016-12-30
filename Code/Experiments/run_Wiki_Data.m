@@ -14,6 +14,8 @@ findex=strfind(fpath,'/');
 rootDir=fpath(1:findex(end-2));
 addpath(genpath(strcat(rootDir,'Code/')));
 addpath(genpath(strcat(rootDir,'Data/')));
+
+
 load('Wikipedia.mat');
 
 tran=500;dim=10;tesn=100;K=20;numData=2;reps=100;iter=-1;scale=1;m=50;matchingMethod=2;
@@ -22,6 +24,19 @@ ss=size(dis,2)/numData;
 TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
 TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
 disEuc=[TEEuc TFEuc];
+
+load('BrainCP.mat')
+dis=[distC, distP];
+tran=33;dim=3;tesn=3;K=6;numData=2;reps=100;iter=-1;scale=1;m=5;matchingMethod=1;n=42;
+per=zeros(reps,n);
+
+ss=size(dis,2)/numData;
+TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
+TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
+disEuc=[TEEuc TFEuc];
+for i=1:reps;
+    per(i,:)=randperm(n);
+end
 
 options = struct('nonlinear',0,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
 [~,accMDS,powerMDS]=MatchingTest(dis,dim,tran,tesn,reps,options);
@@ -47,29 +62,7 @@ options = struct('nonlinear',3,'match',matchingMethod,'neighborSize',K,'jointSel
 % end
 % dis=[LMLS,y];
 %
-load('BrainCP.mat')
-dis=[distC, distP];
-tran=33;dim=3;tesn=3;K=6;numData=2;reps=100;iter=-1;scale=1;m=5;matchingMethod=1;n=42;
-per=zeros(reps,n);
 
-ss=size(dis,2)/numData;
-TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
-TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
-disEuc=[TEEuc TFEuc];
-for i=1:reps;
-    per(i,:)=randperm(n);
-end
-
-options = struct('nonlinear',0,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
-[~,accMDS,powerMDS]=MatchingTest(dis,dim,tran,tesn,reps,options);
-options = struct('nonlinear',1,'match',matchingMethod,'neighborSize',K,'jointSelection',1,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
-[~,accMMSJ,powerMMSJ]=MatchingTest(dis,dim,tran,tesn,reps,options);
-options = struct('nonlinear',1,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
-[~,accISO,powerISO]=MatchingTest(dis,dim,tran,tesn,reps,options);
-options = struct('nonlinear',2,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
-[~,accLLE,powerLLE]=MatchingTest(dis,dim,tran,tesn,reps,options);
-options = struct('nonlinear',3,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
-[~,accLTSA,powerLTSA]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
 %
 %
 % political graphs

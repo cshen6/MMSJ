@@ -29,12 +29,12 @@ for i=1:3
             figureName='SwissRoll';
             tit='Swiss Roll';
         case 2
-            fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'NoiseResults.mat');
+            fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'ResultsNoise.mat');
             xla='Noise Level';
             figureName='SwissRollNoise';
             tit='Swiss Roll with Noise';
         case 3
-            fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'OutlierResults.mat');
+            fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'ResultsOutlier.mat');
             xla='Percentage of Outliers';
             figureName='SwissRollOutlier';
             tit='Swiss Roll with Outliers';
