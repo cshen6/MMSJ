@@ -25,9 +25,15 @@ TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
 TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
 disEuc=[TEEuc TFEuc];
 
-load('BrainCP.mat')
-dis=[distC, distP];
-tran=33;dim=3;tesn=3;K=6;numData=2;reps=100;iter=-1;scale=1;m=5;matchingMethod=1;n=42;
+% load('BrainCP.mat')
+% dis=[distC, distP];
+% tran=36;dim=3;tesn=2;K=6;numData=2;reps=100;iter=-1;scale=1;m=5;matchingMethod=1;n=42;
+% per=zeros(reps,n);
+
+load('Semipar.mat')
+% dis=[distM2g(ind,ind), squareform(pdist(cci(ind)))];
+dis=[distM2g(ind,ind), distMigrain(ind,ind)];
+tran=79;dim=2;tesn=10;K=7;numData=2;reps=100;iter=-1;scale=1;m=dim;matchingMethod=1;n=109;
 per=zeros(reps,n);
 
 ss=size(dis,2)/numData;
@@ -35,9 +41,8 @@ TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
 TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
 disEuc=[TEEuc TFEuc];
 for i=1:reps;
-    per(i,:)=randperm(n);
+per(i,:)=randperm(n);
 end
-
 options = struct('nonlinear',0,'match',matchingMethod,'neighborSize',K,'jointSelection',0,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
 [~,accMDS,powerMDS]=MatchingTest(dis,dim,tran,tesn,reps,options);
 options = struct('nonlinear',1,'match',matchingMethod,'neighborSize',K,'jointSelection',1,'CIsomap',0,'weight',1,'scaling',scale,'numData',numData,'maxIter',iter,'permutation',per,'oos',2*tesn);
@@ -50,24 +55,52 @@ options = struct('nonlinear',3,'match',matchingMethod,'neighborSize',K,'jointSel
 [~,accLTSA,powerLTSA]=MatchingTestEuc(disEuc,dim,tran,tesn,reps,options);
 
 
+% ss=size(dis,2)/numData;
+% TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
+% TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
+% disEuc=[TEEuc TFEuc];
+% for i=1:reps;
+%     per(i,:)=randperm(n);
+% end
 
+
+% 
 % load('BrainHippoShape.mat')
 % dis=[LMLS, LMRS];
-% tran=70;dim=3;tesn=10;K=12;numData=2;reps=100;iter=-1;scale=1;m=10;
-% y=squareform(pdist(Label));
-% %y=(y>0)+1;
-% y=y+1;
-% for i=1:n
-%     y(i,i)=0;
+% tran=99;dim=3;tesn=5;K=10;numData=2;reps=100;iter=-1;scale=1;m=10;matchingMethod=1;
+% per=zeros(reps,n);
+% 
+% ss=size(dis,2)/numData;
+% TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
+% TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
+% disEuc=[TEEuc TFEuc];
+% for i=1:reps;
+%     per(i,:)=randperm(n);
 % end
-% dis=[LMLS,y];
-%
-
-%
-%
-% political graphs
+% % y=squareform(pdist(Label));
+% % %y=(y>0)+1;
+% % y=y+1;
+% % for i=1:n
+% %     y(i,i)=0;
+% % end
+% % dis=[LMLS,y];
+% %
+% 
+% %
+% %
+% % political graphs
 % load('PoliticalNetwork.mat')
-% tran=22;dim=2;tesn=3;K=5;numData=2;reps=100;iter=-1;scale=1;m=dim;matchingMethod=2;n=34;
+% tran=22;dim=5;tesn=4;K=6;numData=2;reps=100;iter=-1;scale=1;m=dim;matchingMethod=1;n=34;
+% dis=[squareform(pdist(Adj')) squareform(pdist(Label))];
+% per=zeros(reps,n);
+% 
+% ss=size(dis,2)/numData;
+% TEEuc=SMDS(dis(1:ss, 1:ss),m,0);
+% TFEuc=SMDS(dis(1:ss, ss+1:2*ss),m,0);
+% disEuc=[TEEuc TFEuc];
+% for i=1:reps;
+%     per(i,:)=randperm(n);
+% end
 % TEEuc=SMDS(Adj,m,0);
 % TFEuc=[Label,zeros(n,1)]';
 % disEuc=[TEEuc TFEuc];

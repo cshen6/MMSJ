@@ -35,7 +35,7 @@ switch option
         numRange=1:1:10;
         fileName='ResultsNoise';
     case 3
-        numRange=0:0.05:1;
+        numRange=0:0.01:0.1;
         fileName='ResultsOutlier';
 end
 

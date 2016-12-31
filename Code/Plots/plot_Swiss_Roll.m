@@ -28,42 +28,45 @@ for i=1:3
             xla='Number of Training Data';
             figureName='SwissRoll';
             tit='Swiss Roll';
+            lgdLoc='NorthWest';
         case 2
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'ResultsNoise.mat');
             xla='Noise Level';
             figureName='SwissRollNoise';
             tit='Swiss Roll with Noise';
+            lgdLoc='NorthEast';
         case 3
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'ResultsOutlier.mat');
             xla='Percentage of Outliers';
             figureName='SwissRollOutlier';
             tit='Swiss Roll with Outliers';
+            lgdLoc='NorthEast';
     end
     
     load(fileName);
     x=1:length(numRange);
     
     ax=figure;
-    plot(x,accMMSJ,'.-', x,accMDS,'.:', x,accISO,'.--',x,accLLE,'.--',x,accLTSA,'.--', 'LineWidth',2);
-    legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
-    title(tit,'FontSize',18);
+    plot(x,accMMSJ,'.-', x,accMDS,'.:', x,accISO,'.--',x,accLLE,'.--',x,accLTSA,'.--', 'LineWidth',4);
+    legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location',lgdLoc);
+    title(tit,'FontSize',32);
     xlabel(xla)
     ylabel('Matching Ratio')
     ylim([0 1])
     xlim([1 length(numRange)])
-    set(gca,'FontSize',16);
-    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0,0.5,1]); 
-    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Acc')),'pdf')
+    set(gca,'FontSize',25);
+    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0.5,1]); 
+    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Acc',num2str(matchingMethod))),'png')
     
     ax=figure;
-    plot(x,powerMMSJ(:,2),'.-', x,powerMDS(:,2),'.:', x,powerISO(:,2),'.--',x,powerLLE(:,2),'.--',x,powerLTSA(:,2),'.--', 'LineWidth',2);
-    legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location','SouthEast');
-    title(tit,'FontSize',18);
+    plot(x,powerMMSJ(:,2),'.-', x,powerMDS(:,2),'.:', x,powerISO(:,2),'.--',x,powerLLE(:,2),'.--',x,powerLTSA(:,2),'.--', 'LineWidth',4);
+    legend('MMSJ', 'MDS','Isomap', 'LLE', 'LTSA','Location',lgdLoc);
+    title(tit,'FontSize',32);
     xlabel(xla)
     ylabel('Testing Power')
     ylim([0 1])
     xlim([1 length(numRange)])
-    set(gca,'FontSize',16);
-    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0,0.5,1]); 
-    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Power')),'pdf')
+    set(gca,'FontSize',25);
+    set(gca,'XTick',[1,ceil(length(numRange)/2),length(numRange)],'XTickLabel',[numRange(1),numRange(ceil(length(numRange)/2)),numRange(end)],'YTick',[0.5,1]); 
+    saveas(ax,fullfile(strcat(rootDir,'Figures/'), strcat(figureName,'Power',num2str(matchingMethod))),'png')
 end

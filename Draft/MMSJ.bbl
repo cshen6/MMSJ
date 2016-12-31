@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{51}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,20 +11,6 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
-%Type = Article
-\bibitem[{Adelstein et~al.(2011)Adelstein, Shehzad, Mennes, DeYoung, Zuo,
-  Kelly, Margulies, Bloomfield, Gray, Castellanos and
-  Milham}]{AdelsteinEtAl2011}
-\bibinfo{author}{Adelstein, J.}, \bibinfo{author}{Shehzad, Z.},
-  \bibinfo{author}{Mennes, M.}, \bibinfo{author}{DeYoung, C.},
-  \bibinfo{author}{Zuo, X.}, \bibinfo{author}{Kelly, C.},
-  \bibinfo{author}{Margulies, D.}, \bibinfo{author}{Bloomfield, A.},
-  \bibinfo{author}{Gray, J.}, \bibinfo{author}{Castellanos, F.},
-  \bibinfo{author}{Milham, M.}, \bibinfo{year}{2011}.
-\newblock \bibinfo{title}{Personality is reflected in the brain's intrinsic
-  functional architecture}.
-\newblock \bibinfo{journal}{PLoS ONE} \bibinfo{volume}{6},
-  \bibinfo{pages}{e27633}.
 %Type = Techreport
 \bibitem[{Bach and Jordan(2005)}]{BachJordan2005}
 \bibinfo{author}{Bach, F.R.}, \bibinfo{author}{Jordan, M.I.},
@@ -74,36 +60,10 @@
 \newblock \bibinfo{journal}{International Journal of Pattern Recognition and
   Artificial Intelligence} \bibinfo{volume}{18}, \bibinfo{pages}{265--298}.
 %Type = Book
-\bibitem[{{Costa, {\&} McCrae}(1992)}]{Costa1992}
-\bibinfo{author}{{Costa, {\&} McCrae}, R.R.}, \bibinfo{year}{1992}.
-\newblock \bibinfo{title}{{Neo PI-R professional manual}}. volume
-  \bibinfo{volume}{396}.
-\newblock \DOIprefix\doi{10.1037/0003-066X.52.5.509}.
-%Type = Book
 \bibitem[{Cox and Cox(2001)}]{CoxBook}
 \bibinfo{author}{Cox, T.}, \bibinfo{author}{Cox, M.}, \bibinfo{year}{2001}.
 \newblock \bibinfo{title}{Multidimensional Scaling}.
 \newblock \bibinfo{publisher}{Chapman and Hall}.
-%Type = Article
-\bibitem[{Craddock et~al.(2015)Craddock, Sikka, Cheung, Khanuja, Ghosh, Yan,
-  Li, Lurie, Vogelstein, Burns, Colcombe, Mennes, Kelly, {Di Martino},
-  Castellanos and Milham}]{CPAC2015}
-\bibinfo{author}{Craddock, C.}, \bibinfo{author}{Sikka, S.},
-  \bibinfo{author}{Cheung, B.}, \bibinfo{author}{Khanuja, R.},
-  \bibinfo{author}{Ghosh, S.S.}, \bibinfo{author}{Yan, C.},
-  \bibinfo{author}{Li, Q.}, \bibinfo{author}{Lurie, D.},
-  \bibinfo{author}{Vogelstein, J.}, \bibinfo{author}{Burns, R.},
-  \bibinfo{author}{Colcombe, S.}, \bibinfo{author}{Mennes, M.},
-  \bibinfo{author}{Kelly, C.}, \bibinfo{author}{{Di Martino}, A.},
-  \bibinfo{author}{Castellanos, F.X.}, \bibinfo{author}{Milham, M.},
-  \bibinfo{year}{2015}.
-\newblock \bibinfo{title}{{Towards Automated Analysis of Connectomes: The
-  Configurable Pipeline for the Analysis of Connectomes (C-PAC)}}.
-\newblock \bibinfo{journal}{Frontiers in Neuroinformatics}
-  \bibinfo{volume}{42}.
-\newblock \URLprefix
-  \url{http://www.frontiersin.org/neuroinformatics/10.3389/conf.fninf.2013.09.00042/full},
-  \DOIprefix\doi{10.3389/conf.fninf.2013.09.00042}.
 %Type = Article
 \bibitem[{Deerwester et~al.(1990)Deerwester, Dumais, Landauer, Furnas and
   Harshman}]{DeerwesterDumais1990}
@@ -159,6 +119,21 @@
   \bibinfo{year}{2004}.
 \newblock \bibinfo{title}{{Procrustes} Problems}.
 \newblock \bibinfo{publisher}{Oxford University Press}.
+%Type = Article
+\bibitem[{Gray~Roncal et~al.(2013)Gray~Roncal, Koterba, Mhembere, Kleissas,
+  Vogelstein, Burns, Bowles, Donavos, Ryman, Jung, Wu, Calhoun and
+  Vogelstein}]{GrayRoncal2013}
+\bibinfo{author}{Gray~Roncal, W.}, \bibinfo{author}{Koterba, Z.H.},
+  \bibinfo{author}{Mhembere, D.}, \bibinfo{author}{Kleissas, D.M.},
+  \bibinfo{author}{Vogelstein, J.T.}, \bibinfo{author}{Burns, R.},
+  \bibinfo{author}{Bowles, A.R.}, \bibinfo{author}{Donavos, D.K.},
+  \bibinfo{author}{Ryman, S.}, \bibinfo{author}{Jung, R.E.},
+  \bibinfo{author}{Wu, L.}, \bibinfo{author}{Calhoun, V.D.},
+  \bibinfo{author}{Vogelstein, R.J.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{MIGRAINE}: {MRI} graph reliability analysis and
+  inference for connectomics}.
+\newblock \bibinfo{journal}{Global Conference on Signal and Information
+  Processing} .
 %Type = Article
 \bibitem[{Hardoon et~al.(2004)Hardoon, Szedmak and Shawe-Taylor}]{Hardoon2004}
 \bibinfo{author}{Hardoon, D.R.}, \bibinfo{author}{Szedmak, S.},
@@ -290,11 +265,11 @@
   latent space}, in: \bibinfo{booktitle}{IEEE Conference on Computer Vision and
   Pattern Recognition (CVPR)}.
 %Type = Article
-\bibitem[{Shen et~al.(2016)Shen, Priebe, Maggioni and
-  Vogelstein}]{ShenEtAl2016}
+\bibitem[{Shen et~al.(2017)Shen, Priebe, Maggioni and
+  Vogelstein}]{ShenEtAl2017}
 \bibinfo{author}{Shen, C.}, \bibinfo{author}{Priebe, C.E.},
   \bibinfo{author}{Maggioni, M.}, \bibinfo{author}{Vogelstein, J.T.},
-  \bibinfo{year}{2016}.
+  \bibinfo{year}{2017}.
 \newblock \bibinfo{title}{Discovering relationships across disparate data
   modalities}.
 \newblock \bibinfo{journal}{Submitted} .
@@ -321,6 +296,12 @@
 \newblock \bibinfo{journal}{Journal of the Royal Statistical Society. Series B}
   \bibinfo{volume}{41}, \bibinfo{pages}{217--229}.
 %Type = Article
+\bibitem[{de~Silva and Tenenbaum(2002)}]{SilvaTenenbaum2002}
+\bibinfo{author}{de~Silva, V.}, \bibinfo{author}{Tenenbaum, J.B.},
+  \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Unsupervised learning of curved manifolds}.
+\newblock \bibinfo{journal}{Nonlinear Estimation and Classification} .
+%Type = Article
 \bibitem[{de~Silva and Tenenbaum(2003)}]{SilvaTenenbaum2003}
 \bibinfo{author}{de~Silva, V.}, \bibinfo{author}{Tenenbaum, J.B.},
   \bibinfo{year}{2003}.
@@ -344,6 +325,26 @@
   disparate data fusion}.
 \newblock \bibinfo{journal}{Pattern Recognition Letters} \bibinfo{volume}{34},
   \bibinfo{pages}{194--200}.
+%Type = Article
+\bibitem[{Sussman et~al.(2013)Sussman, Tang, Fishkind and Priebe}]{Sussman2013}
+\bibinfo{author}{Sussman, D.L.}, \bibinfo{author}{Tang, M.},
+  \bibinfo{author}{Fishkind, D.E.}, \bibinfo{author}{Priebe, C.E.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{A consistent dot product embedding for stochastic
+  blockmodel graphs}}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{volume}{107}, \bibinfo{pages}{1119--1128}.
+%Type = Article
+\bibitem[{Tang et~al.(2016)Tang, Athreya, Sussman, Lyzinski, Park and
+  Priebe}]{Tang2016}
+\bibinfo{author}{Tang, M.}, \bibinfo{author}{Athreya, A.},
+  \bibinfo{author}{Sussman, D.L.}, \bibinfo{author}{Lyzinski, V.},
+  \bibinfo{author}{Park, Y.}, \bibinfo{author}{Priebe, C.E.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{A semiparametric two-sample hypothesis testing
+  problem for random graphs}.
+\newblock \bibinfo{journal}{Journal of Computational {\&} Graphical Statistics}
+  .
 %Type = Article
 \bibitem[{Tenenbaum et~al.(2000)Tenenbaum, de~Silva and
   Langford}]{TenenbaumSilvaLangford2000}

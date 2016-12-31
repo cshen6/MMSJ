@@ -75,14 +75,13 @@ manifold matching, graph matching, shortest-path distance, joint neighborhood gr
 \end{frontmatter}
 
 \section{Introduction}
-add \citep{JJ2008}
 In today's world, it is becoming increasingly important to deal effectively with large amounts of high-dimensional data. For the purpose of data analysis, it is imperative to consider dimension reduction and embed the data into a low-dimensional space for subsequent analysis. Traditional linear embedding techniques have solid theoretical foundations and are widely used, e.g. principal component analysis (PCA) \citep{JolliffePCABook, BishopTipping1999} and multidimensional scaling (MDS) \citep{TorgersonBook, BorgBook, CoxBook} for datasets of a single modality, and canonical correlation analysis (CCA) \citep{Hotelling1936, BachJordan2005} for datasets of multiple modalities. 
 
 However, real datasets may exhibit nonlinear geometry, and discovering the underlying non-linearity can be beneficial for subsequent inference. Many manifold learning algorithms have been proposed to learn the intrinsic low-dimensional structure of nonlinear datasets, including Isomap \citep{TenenbaumSilvaLangford2000, SilvaTenenbaum2003}, locally linear embedding (LLE) \citep{SaulRoweis2000, RoweisSaul2003}, Hessian LLE \citep{DonohoGrimes2003}, Laplacian eigenmaps \citep{BelkinNiyogi2003, HeEtAl2005}, local tangent space alignment (LTSA) \citep{ZhangZha2004, ZhangWangZha2012}, among many others. Most of them start with the assumption that the data are locally linear, explore the local geometry via the nearest-neighbor graph of the sample data, carry out transformation of the data based on the neighborhood graph, and eventually learn the low-dimensional manifold by optimizing some objective function. These nonlinear embedding algorithms usually serve as a preliminary feature extraction step that enables subsequent inference. They have been used successfully in object recognition and image processing. 
 
 In this paper, we consider the manifold matching task for datasets of multiple modalities, which is traditionally modeled by multiple dependent random variables. Classical methods for identifying the relationship among multiple random variables are still very popular in theory and practice, such as canonical correlation \citep{Hotelling1936, Kettenring1971, Hardoon2004} and Procrustes transformation \citep{Sibson1978, Sibson1979, GoldbergRitov2009, GowerProcrustesBook}. However, it has become a much more challenging task to match real datasets of multiple modalities from disparate sources, such as the same document in different languages, an image and its descriptions, or networks of the same actors on different social websites. 
 
-There have been many recent endeavors regarding data fusion and manifold matching \citep{LafonKellerCoifman2006, WangMahadevan2008, WangMahadevan2012, SharmaKumar2012, PriebeMarchette2012, SunPriebeTang2013, ShenSunTangPriebe2014}. Similar to dimension reduction for datasets of a single modality, manifold matching can serve as a feature extraction step to explore datasets of multiple modalities, and has also been shown to help subsequent inference in object recognition \citep{KimKittlerCipolla2007}, information retrieval \citep{SunPriebe2012}, and transfer learning \citep{PanYang2010}. Furthermore, the matching task is important on its own and has been applied to explore multiple graphs and networks \citep{ConteEtAl2004, FioriEtAl2013, LyzinskiFishkindPriebe2014, JoshuaEtAl2015, LyzinskiFishkindPriebe2016}. One such application is seeded graph matching, where two large networks are collected but only a percentage of training vertices have known correspondence. Thus, the remaining vertices need to be matched properly to uncover the potential correspondence.
+There have been many recent endeavors regarding data fusion and manifold matching \citep{LafonKellerCoifman2006, WangMahadevan2008, WangMahadevan2012, SharmaKumar2012, PriebeMarchette2012, SunPriebeTang2013, ShenSunTangPriebe2014}. Similar to dimension reduction for datasets of a single modality, manifold matching can serve as a feature extraction step to explore datasets of multiple modalities, and has also been shown to help subsequent inference in object recognition \citep{KimKittlerCipolla2007}, information retrieval \citep{SunPriebe2012}, and transfer learning \citep{PanYang2010}. Furthermore, the matching task is important on its own and has been applied to explore multiple graphs and networks \citep{LyzinskiFishkindPriebe2014, JoshuaEtAl2015, LyzinskiFishkindPriebe2016}. One such application is seeded graph matching, where two large networks are collected but only a percentage of training vertices have known correspondence. Thus, the remaining vertices need to be matched properly to uncover the potential correspondence.
 
 Due to the success of nonlinear embedding algorithms for datasets of a single modality, it is often perceived that these algorithms can be combined into the matching framework to improve the matching performance when one or more modalities are nonlinear. A na\"ive procedure is to pick one nonlinear algorithm, apply it to each modality separately, and match the embedded modalities. But such a simplistic procedure does not always guarantee a good matching performance, since many nonlinear embedding algorithms only preserve the local geometry up to some affine transformation \citep{GoldbergRitov2008}. Furthermore, we will show in the numerical experiments that a direct matching of separate nonlinear embeddings can even deteriorate the matching performance when compared to linear embeddings.
 
@@ -95,7 +94,9 @@ To tackle the problem, we propose a manifold matching algorithm using shortest-p
 \label{bg}
 Suppose $n$ objects are measured under two different sources. Then $X_{l}=\{x_{il}\} \in \Xi_{l}$ for $l=1, 2$ are the actual datasets that are observed / collected, with $x_{i1} \sim x_{i2}$ for each $i$ ($\sim$ means the two observations are matched in the context). Thus $X_{1}$ and $X_{2}$ are the two different views/modalities of the same underlying data. This setting is extendable to datasets of more than two modalities, but for ease of presentation we focus mainly on the matching task of two modalities.
 
-$\Xi_{1}$ and $\Xi_{2}$ are potentially very different from each other, such as a flat manifold and its nonlinear transformation, an image and its description, or texts under different languages. We assume $x_{il} \in \Xi_{l}$ is endowed with a distance measure $\Delta_{l}$ such that $\Delta_{l}(i,j)=dist(x_{il},x_{jl})$. To match multiple modalities, we find two mappings $\rho_{l}: \Xi_{l} \rightarrow \mathbb{R}^{d}, l=1,2$ such that the mapped data $\hat{X}_{l}=\{ \rho_{l}(x_{il}) \}$ are matched into a common low-dimensional Euclidean space $\mathbb{R}^{d}$. A simple example of $\rho_{l}$ can be MDS (e.g., classical MDS first doubly centers the distance matrices, followed by eigen-decomposition and keeping the top $d$ eigenvalues and eigenvectors to yield the embedding) followed by CCA (find two orthogonal $d \times d$ transformation matrices for each data set to maximize their correlation), which is a linear embedding and matching procedure.
+$\Xi_{1}$ and $\Xi_{2}$ are potentially very different from each other, such as a flat manifold and its nonlinear transformation, an image and its description, or texts under different languages. A typical example is the social network, where many users have accounts on Youtube, Facebook, Twitter, etc. People often post different contents and connect with different groups on each website, such that data analysis of better quality is only possible when multiple accounts of the same person can be combined. Some accounts can be automatically matched, if the user already linked their accounts, or unique user information are filled and identified (like actual name, occupation), which provides a set of matched training data; but all the other accounts without full user information need to be matched by machine (as manual match is too expensive for millions of accounts), which provides a set of testing data from each website.
+
+We assume $x_{il} \in \Xi_{l}$ is endowed with a distance measure $\Delta_{l}$ such that $\Delta_{l}(i,j)=dist(x_{il},x_{jl})$. To match multiple modalities, we find two mappings $\rho_{l}: \Xi_{l} \rightarrow \mathbb{R}^{d}, l=1,2$ such that the mapped data $\hat{X}_{l}=\{ \rho_{l}(x_{il}) \}$ are matched into a common low-dimensional Euclidean space $\mathbb{R}^{d}$. A simple example of $\rho_{l}$ can be MDS (e.g., classical MDS first doubly centers the distance matrices, followed by eigen-decomposition and keeping the top $d$ eigenvalues and eigenvectors to yield the embedding) followed by CCA (find two orthogonal $d \times d$ transformation matrices for each data set to maximize their correlation), which is a linear embedding and matching procedure.
 
 Once the mappings are learned, for any new observations $y_{1} \in \Xi_{1}$ and $y_{2} \in \Xi_{2}$ of unknown correspondence, the learned mappings $\rho_{l}$ can be applied to match the testing observations in the low-dimensional Euclidean space, i.e., $\hat{y}_{l} = \rho_{l}(y_{l}) \in \mathbb{R}^{d}$. Ideally, a good matching procedure should be able to correctly identify the correspondence of the new observations, i.e., if the testing observations are truly matched in the context, the mapped points should be very close to each other in the common Euclidean space. If the testing observations are not matched, the mapped points should be far away from each other.
 
@@ -165,7 +166,7 @@ Note that algorithm~\ref{alg2} is applicable to testing data of arbitrary size, 
 
 To better visualize the process, we also summarize it in the flowchart of Figure~\ref{flow}.
 
-\begin{figure}[!h]
+\begin{figure}[ht]
 \centering
 \begin{tikzpicture}[node distance=1.5cm]
 \node (in1) [node, xshift=4cm] {$[X_{1}] \in \Xi_{1}$};
@@ -210,9 +211,9 @@ The joint neighborhood graph ensures consistent neighborhood selection in the ca
 
 The shortest-path distance can recover the geodesic distance of isometric manifolds with high probability under certain sampling conditions \citep{BernsteinEtAl2000, SilvaTenenbaum2003}. When used together with joint neighborhood, the shortest-path distance makes use of the correspondence information. Computationally, the shortest-path distance matrix can be effectively implemented by Floyd's algorithm or Dijkstra's algorithm \citep{TenenbaumSilvaLangford2000}, which can be further sped up by choosing a small set of landmark points \citep{SilvaTenenbaum2003, BengioEtal2003}. For embedding the testing data, we essentially treat the training data as landmark points and only compute the shortest path distances from the testing to the training.
 
-Embedding the shortest-path distance matrices followed by matching is a standard procedure. Alternatively, one may match the embeddings by CCA or joint MDS, as discussed in \citep{PriebeMarchette2012, FishkindShenPriebe2016}. The advantages of MMSJ mostly lie in joint neighborhood and shortest-path distance; in fact, MMSJ always exhibits significant improvement, no matter which matching method to use. Thus we mainly consider the Procrustes matching for ease of presentation in the paper. Note that the testing data are embedded by out-of-sample MDS, which is a standard technique for MDS and kernel PCA \citep{ScholkopfSmolaMuller1998,BengioEtal2003,TrossetPriebe2008}, and more efficient than re-embedding all training and testing data. After the testing data are mapped onto the manifolds by the learned Procrustes matching, we may test the matched-ness of any two testing observations from different data sources as in section~\ref{bg}.
+Embedding the shortest-path distance matrices followed by matching is a standard procedure. Alternatively, one may match the embeddings by CCA or joint MDS, as discussed in \citep{PriebeMarchette2012, FishkindShenPriebe2016}. The advantages of MMSJ mostly lie in joint neighborhood and shortest-path distance; in fact, MMSJ always exhibits significant improvement, no matter which matching method to use. Thus we mainly consider the Procrustes matching for ease of presentation in the paper (CCA matching results are added to Appendix). Note that the testing data are embedded by out-of-sample MDS, which is a standard technique for MDS and kernel PCA \citep{ScholkopfSmolaMuller1998,BengioEtal2003,TrossetPriebe2008}, and more efficient than re-embedding all training and testing data. After the testing data are mapped onto the manifolds by the learned Procrustes matching, we may test the matched-ness of any two testing observations from different data sources as in section~\ref{bg}.
 
-In terms of computation speed, suppose $n$ is the total sample size, the running time complexity of MMSJ is $O(n^2)$, assuming the distance matrices are already given and the shortest-path distance step uses the fast landmark approximation. The only overhead is the distance matrix construction, which takes an additional $O(n^2 d)$, where $d$ denotes the maximal feature vector size among all modalities.
+In terms of computation speed, suppose $n$ is the total sample size, the running time complexity of MMSJ is $O(n^2)$, assuming the distance matrices are already given and the shortest-path distance step uses the fast landmark approximation. The only overhead is the distance matrix construction, which takes an additional $O(n^2 d)$, where $d$ denotes the maximal feature dimension among all modalities.
 
 To compare with MMSJ, we use the common procedure that embed each modality separately by MDS / Isomap / LLE / LTSA, followed by Procrustes matching. Note that MDS / Isomap / LLE can all operate directly on a distance matrix, but some nonlinear algorithms like LTSA have to start with the Euclidean data rather than a distance measure. Thus, if only the distance matrices are available, MDS is first used to embed the distance matrices into a Euclidean space $\mathbb{R}^{d'}$ with $d' \geq d$, followed by LTSA to embed into $\mathbb{R}^{d}$, then Procrustes matching.
 
@@ -240,31 +241,46 @@ The MMSJ algorithm exhibits a significant advantage over all other algorithms: i
 
 Next, we checked the robustness of the manifold matching algorithms against noise, by adding white noise to the linear modality $X_{2}$. The noise was independently and identically distributed as $Normal(0, \epsilon I_{2 \times 2})$, and the same testing procedure was applied to compute the matching ratio at each noise level. The results are plotted in Figure~\ref{fig2}(b) with respect to the increasing noise level $\epsilon = 0,1,2,\ldots,10$ at $n=1000$. The MMSJ algorithm is clearly better than all the benchmarks as the noise level increases.
 
-For the third simulation, we consider an outlier scenario, by randomly permuting a portion of the training data. For $\epsilon=0,0.05,\ldots,1$, we randomly take $\epsilon n$ training data from $X_{2}$ and permute their position, such that those training data are no longer matched with the corresponding points from $X_{1}$, i.e., there exists $\epsilon n$ outliers in the training data. Fixing $n=1000$, we apply the same testing procedure, and plot the matching ratio in Figure~\ref{fig2}(c) with respect to the outlier percentage $\epsilon$. The MMSJ algorithm is also robust against outliers, having better matching ratio throughout increasing $\epsilon$.
+For the third simulation, we consider an outlier scenario, by randomly permuting a portion of the training data. For $\epsilon=0,0.01,\ldots,0.1$, we randomly take $\epsilon n$ training data from $X_{2}$ and permute their position, such that those training data are no longer matched with the corresponding points from $X_{1}$, i.e., there exists $\epsilon n$ outliers in the training data. Fixing $n=1000$, we apply the same testing procedure, and plot the matching ratio in Figure~\ref{fig2}(c) with respect to the outlier percentage $\epsilon$. The MMSJ algorithm is also robust against outliers, having better matching ratio throughout increasing $\epsilon$; and all methods have insignificant matching ratio after the outlier percentage $\epsilon$ increases beyond $0.1$, implying that the matching task may benefit significantly from excluding outliers prior to matching.
 
 %For the third simulation, we matched two linear modalities: instead of the 3D Swiss roll, we used the 2D LLE embedding as $X_{1}$; thus $X_{1}$ and $X_{2}$ are both linear with some differences. Using the same procedure and parameters as the first simulation, the testing power is plotted in Figure~\ref{fig2}(d) and the matching ratio is shown in the second row of Table~\ref{table:Swiss}. In this case MMSJ, MDS, and Isomap had similar performances while LLE and LTSA were slightly worse, which indicates that the shortest-path distance is more robust when matching noisy linear manifolds. Note that the matching ratio and testing power here were lower than those in the first simulation, because the LLE embedding has a distorted linear geometry. 
 
-Note that the testing powers of all three simulations are shown in Appendix, which has similar interpretation as the matching ratio regarding the MMSJ superiority.
+Note that the testing powers of all three simulations as well as the CCA matching results are shown in Appendix, which yields similar interpretations regarding the MMSJ superiority.
+
+\begin{figure*}
+  \centering
+  \begin{tabular}{@{}p{\linewidth}@{\quad}p{\linewidth}@{}}
+	\centering
+    \subfigimg[width=0.32\linewidth]{A}{SwissRollAcc1}
+    \subfigimg[width=0.32\linewidth]{B}{SwissRollNoiseAcc1}
+    \subfigimg[width=0.32\linewidth]{C}{SwissRollOutlierAcc1}
+  \end{tabular}
+  \caption{ Matching Ratio of 3D Swiss Roll versus its 2D Underlying Linear Manifold.
+(A) Matching Ratio with respect to Increasing Size of Training Data.
+(B) Matching Ratio with respect to Increasing Noise at $n=1000$.
+(C) Matching Ratio with respect to Growing Number of Outliers at $n=1000$. }
+\label{fig2}
+\end{figure*}
 
 \subsection{Wikipedia Articles Experiments}
 \label{wikiReal}
-In the real data experiments, we applied the manifold matching algorithm to match disparate features of Wikipedia articles. The raw data contained $1382$ pairs of articles from Wikipedia English and the corresponding French translations, within the 2-neighborhood of the English article ``Algebraic Geometry". On Wikipedia, the same articles of different languages are almost never the exact translations of each other, because they are very likely written by different people and their contents may differ in many ways.
+In this section, we applied the manifold matching algorithm to match disparate features of Wikipedia articles. The raw data contained $1382$ pairs of articles from Wikipedia English and the corresponding French translations, within the 2-neighborhood of the English article ``Algebraic Geometry". On Wikipedia, the same articles of different languages are almost never the exact translations of each other, because they are very likely written by different people and their contents may differ in many ways.
 
 For the English articles and their French translations, a text feature and a graph feature were collected separately under each language. For the texts of each article, we used latent semantic indexing (LSI) (i.e., first construct a term-document matrix to describe the occurrences of terms in documents, then apply the low-rank approximation to the term matrix to $100$ dimensions by singular value decomposition, see \citep{DeerwesterDumais1990} for details) followed by cosine dissimilarity to construct two dissimilarity matrices $TE$ and $TF$ (representing the English texts and French texts). For the networks, two shortest-path distance matrices $GE$ and $GF$ (representing the English graph and French graph) were calculated based on the Internet hyperlinks of the articles under each language setting, with any path distance larger than $4$ imputed to be $6$ to avoid infinite distances and scaling issues.
 
 Therefore, there existed four different modalities for pairs of Wikipedia articles on the same topic, making $TE$, $TF$, $GE$, and $GF$ matched in the context. Furthermore, as the text matrices were derived by cosine similarity while the graph matrices were based on the shortest-path distance with imputation, the former probably had nonlinear geometries while the latter were linear from the view of our matching algorithm.
 
-For each Monte-Carlo replicate, we randomly picked $n=500$ pairs of training observations, $100$ pairs of testing matched observations, and $100$ pairs of testing unmatched observations for evaluation. The parameters were set as $k=20$, $d=10$, $d'=50$ (for LTSA only), and the manifold matching algorithms were applied for every possible combination of matching two modalities. We performed a total of $100$ Monte-Carlo replicates. The mean matching ratio is reported in Table~\ref{table:wikiAcc}, the estimated testing power is presented in Table~\ref{table:wikiPower} at type $1$ error level $0.05$, and the power curves for some matching combinations are plotted in Figure~\ref{figReal}. 
+For each Monte-Carlo replicate, we randomly picked $n=500$ pairs of training observations, $100$ pairs of testing matched observations, and $100$ pairs of testing unmatched observations for evaluation. The parameters were set as $k=20$, $d=10$, $d'=50$ (for LTSA only), and the manifold matching algorithms were applied for every possible combination of matching two modalities. We performed a total of $100$ Monte-Carlo replicates. The mean matching ratio is reported in Table~\ref{table:wikiAcc}, the estimated testing power is presented in Table~\ref{table:wikiPower} at type $1$ error level $0.05$, and the full power curves for some matching combinations are included in the Appendix. 
 
 Clearly, MMSJ achieves the best performance throughout all combinations. From the tables and figures, we further observe that without using shortest-path distance or joint neighborhood, separate nonlinear embeddings from LLE or LTSA are worse than the linear MDS embeddings in matching. Isomap does fairly well in the testing power, as it also uses shortest-path distance, but it can still be occasionally similar or slightly inferior to MDS in the matching ratio. Our proposed MMSJ algorithm is consistently the best manifold matching algorithm in both the testing power and the matching ratio throughout.
 
-For the last experiment, we show that MMSJ algorithm is also robust against misspecification of parameters. Figure~\ref{figRealSurf} we shows the MMSJ and Isomap testing powers (the best two algorithms in our matching experiments) for matching $(TE,GE)$ against different choices of $d$ and $k$, for which $d$ ranges from $2$ to $30$ and $k$ ranges from $10$ to $30$. It is clear that MMSJ is always better than Isomap in matching and attains close-to-optimal testing power in a large range of parameter choices; the best MMSJ testing power is $0.55$ while the best Isomap testing power is $0.45$. The same robustness holds for MMSJ under all other matching combinations. 
+For the next experiment, we show that MMSJ algorithm is also robust against misspecification of parameters. The first two panels of Figure~\ref{figRealSurf} show the MMSJ and Isomap testing powers (the best two algorithms in our matching experiments) for matching $(TE,GE)$ against different choices of $d$ and $k$, for which $d$ ranges from $2$ to $30$ and $k$ ranges from $10$ to $30$. It is clear that MMSJ is always better than Isomap in matching and attains similar testing power in a wide range of parameter choices; the best MMSJ testing power is $0.55$ while the best Isomap testing power is $0.45$. The same robustness holds for MMSJ under all other matching combinations. 
 
 %Note that choosing $k$ and $d$ for the Swiss roll data is quite easy, because the neighborhood size has been validated by many previous works and the embedding dimension should equal the intrinsic true dimension. But for real data experiments, the parameter choice is usually dependent on the later inference task.
 
 \begin{Table}
 \centering
-\captionof{table}{Wikipedia Features Matching Ratio}
+\captionof{table}{Wikipedia Documents Matching Ratio}
 \label{table:wikiAcc}%
 \begin{tabular}{|c||c|c|c|c|c|}
 \hline
@@ -287,7 +303,7 @@ $(TF, GE)$ & $\textbf{0.0946}$  & $0.0545$ & $0.0698$ & $0.0132$ & $0.0238$\\
 
 \begin{Table}
 \centering
-\captionof{table}{Wikipedia Features Testing Power at Type $1$ Error Level 0.05}
+\captionof{table}{Wikipedia Documents Testing Power at Type $1$ Error Level 0.05}
 \label{table:wikiPower}
 \begin{tabular}{|c||c|c|c|c|c|}
 \hline
@@ -312,15 +328,77 @@ $(TF, GE)$ & $\textbf{0.4464}$  & $0.2114$ & $0.3595$ & $0.0943$ & $0.1064$\\
   \centering
   \begin{tabular}{@{}p{\linewidth}@{\quad}p{\linewidth}@{}}
 	\centering
-    \subfigimg[width=0.32\linewidth]{A}{SwissRoll1.png}
-    \subfigimg[width=0.32\linewidth]{B}{SwissRoll1Noise.png}
-    \subfigimg[width=0.32\linewidth]{C}{SwissRoll2.png}
+    \subfigimg[width=0.32\linewidth]{A}{WikiTEGESurf1.png}
+    \subfigimg[width=0.32\linewidth]{B}{WikiTEGESurf2.png}
+    \subfigimg[width=0.32\linewidth]{C}{BrainAcc1.png}
   \end{tabular}
-  \caption{ Matching Ratio of 3D Swiss Roll versus its 2D Underlying Linear Manifold.
+  \caption{ (A) The Testing Power of MMSJ for Matching Wikipedia English Text and English Graph with respect to Different Dimension Choices and Neighborhood Sizes at Type $1$ Error Level 0.05.
+(B) Same as (A) but for The Testing Power of Isomap.
+(C) Matching Ratio of Brain Structural Networks with respect to Increasing Size of Training Data.}
+\label{figRealSurf}
+\end{figure*}
+
+\subsection{Brain Structural Networks}
+In this section, we assess the matching performance via brain structural networks.  There are a total of  $n=109$ subjects, each with diffusion weighted magnetic resonance imaging (MRI) data. For the raw brain imaging data, we derived two different modalities.  For each scan, (i) process diffusion and structural MRI data via MIGRAIN, a pipeline for estimating brain networks from diffusion data \cite{GrayRoncal2013}, (ii) compute the distance between brain networks using the semi-parametric graph test statistic \cite{Sussman2013,Tang2016}, then embed each graph into two dimensions and align the embeddings via a Procrustes analysis. The Euclidean distance is used on both modalities. 
+
+Therefore the first modality seems like a more faithful representation of the brain imaging, while the second modality is inherently a graph representation of the brain structure. Although these two modalities are merely different transformations of the same raw data, they are clearly distinct in many aspects such that there is no guarantee that one can recover their underlying geometry or succeed the matching task via machine learning algorithms.
+
+For each Monte-Carlo replicate, we randomly picked $n$ pairs of matched observations for training, with all remaining sample observations for testing. The parameters were set as $k=7$, $d=2$, $d'=2$, with a total of $100$ Monte-Carlo replicates. The mean matching ratio is shown in Figure~\ref{figRealSurf}(C) with respect to increasing size of training data. It is clear that MMSJ is the best matching method among all algorithms, and all matching ratios improve significantly as the training data size increases relative to the testing data size.
+
+\section{Concluding Remarks}
+\label{conclu}
+In summary, we propose a nonlinear manifold matching algorithm using shortest-path distance and joint neighborhood selection. The algorithm is straightforward to implement, and achieves superior and robust performance. It is able to significantly improve the testing power and matching ratio when matching modalities of distinct geometries, and is robust against noise, outliers, and model selection. Our experiments indicate that the shortest-path distance and joint neighborhood selection are two key catalysts behind the improvement of the matching performance.
+
+There are a number of additional potential extensions of this work. First, pursuing theoretical aspects of the manifold matching task is a very challenging but rewarding task: so far there is a very limited number of literatures even for manifold learning of single modality, and there is no guarantee that nonlinear transformation can always recover the linear manifold (the best known theoretical work is that shortest-path distance can recover the geodesic distance under certain class of nonlinear geometry for large sample size \citep{SilvaTenenbaum2002}). On the other hand, the task of matching multiple modalities is unique on its own. As a first step towards better theoretical understanding, we successfully proved in \cite{ShenEtAl2017} that testing dependence via local correlations (which makes use of joint neighborhood information and local distance in a similar manner) can successfully detect almost all relationships as sample size grows large, which shall shed more lights into the consistency of the matching task and may further advance the MMSJ algorithm.
+
+Second, MMSJ requires a pair of metrics (or distances) for each modality. In this work we assume such metrics are pre-defined by domain knowledge, or use the Euclidean distance otherwise. If an optimal metric can be reasonably selected for each modality, it is likely to further boost the performance of MMSJ. From another point of view, if we are given high-dimensional or structured data (say graphs or images), the MMSJ algorithm may further benefit from an appropriate feature selection down to certain landmark features \citep{JJ2008, ConteEtAl2004, FioriEtAl2013}. This quest is a valuable future direction to work on.
+
+\section*{Acknowledgment}
+\addcontentsline{toc}{section}{Acknowledgment}
+This work is partially supported by the National Security Science and Engineering Faculty Fellowship (NSSEFF),
+ the Johns Hopkins University Human Language Technology Center of Excellence (JHU HLT COE), and the
+ XDATA program of the Defense Advanced Research Projects Agency (DARPA) administered through Air Force Research Laboratory contract FA8750-12-2-0303. This work is also supported by the Defense Advanced Research Projects Agency (DARPA) SIMPLEX program through SPAWAR contract N66001-15-C-4041 and DARPA GRAPHS N66001-14-1-4028.
+
+The authors would like to thank the reviewers for their insightful and valuable suggestions in improving the exposition of the paper.
+
+\bibliographystyle{model2-names}
+\bibliography{references}
+
+\clearpage
+\appendix
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\section{Supplementary Figures}
+
+\begin{figure*}
+  \centering
+  \begin{tabular}{@{}p{\linewidth}@{\quad}p{\linewidth}@{}}
+	\centering
+    \subfigimg[width=0.32\linewidth]{A}{SwissRollPower1}
+    \subfigimg[width=0.32\linewidth]{B}{SwissRollNoisePower1}
+    \subfigimg[width=0.32\linewidth]{C}{SwissRollOutlierPower1}
+  \end{tabular}
+  \caption{ Testing Power of 3D Swiss Roll versus its 2D Underlying Linear Manifold at type $1$ error level $0.05$, under the same setting as Figure~\ref{fig2}.
+(A) Testing Power with respect to Increasing Size of Training Data.
+(B) Testing Power with respect to Increasing Noise at $n=1000$.
+(C) Testing Power with respect to Growing Number of Outliers at $n=1000$. }
+\label{figA1}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \begin{tabular}{@{}p{\linewidth}@{\quad}p{\linewidth}@{}}
+	\centering
+    \subfigimg[width=0.32\linewidth]{A}{SwissRollAcc1}
+    \subfigimg[width=0.32\linewidth]{B}{SwissRollNoiseAcc1}
+    \subfigimg[width=0.32\linewidth]{C}{SwissRollOutlierAcc1}
+  \end{tabular}
+  \caption{ Matching Ratio of 3D Swiss Roll versus its 2D Underlying Linear Manifold via CCA matching.
 (A) Matching Ratio with respect to Increasing Size of Training Data.
 (B) Matching Ratio with respect to Increasing Noise at $n=1000$.
 (C) Matching Ratio with respect to Growing Number of Outliers at $n=1000$. }
-\label{fig2}
+\label{figA2}
 \end{figure*}
 
 \begin{figure*}
@@ -335,72 +413,7 @@ $(TF, GE)$ & $\textbf{0.4464}$  & $0.2114$ & $0.3595$ & $0.0943$ & $0.1064$\\
 (A) Testing Power of Wikipedia English Text versus French Text.
 (B) Testing Power of Wikipedia English Text versus English Graph.
 (C) Testing Power of Wikipedia English Graph versus French Graph.}
-\label{figReal}
 \end{figure*}
-
-\begin{figure*}
-  \centering
-  \begin{tabular}{@{}p{\linewidth}@{\quad}p{\linewidth}@{}}
-	\centering
-    \subfigimg[width=0.4\linewidth]{A}{WikiTEGESurf1.png}
-    \subfigimg[width=0.4\linewidth]{B}{WikiTEGESurf2.png}
-  \end{tabular}
-\caption{Testing Power of Wikipedia English Text and English Graph with respect to Different Dimension Choices and Neighborhood Sizes at Type $1$ Error Level 0.05.
-(A) The testing power of MMSJ. (B) The testing power of Isomap.
-}
-\label{figRealSurf}
-\end{figure*}
-
-\subsection{Brain Activity vs Personality}
-\label{wikiReal}
-This experiment investigates whether there is any dependency between brain activity and personality.
-Adelstein et al. \cite{AdelsteinEtAl2011} were able to detect dependence between certain regions and dimensions of personality, but lacked the tools to test for dependence of the whole brain activity against all five dimensions of personality. 
-This dataset consists of $n=42$ subjects, each with  $197$ time-steps of resting-state functional MRI activity, as well as the subject's five-factor personality trait as quantified by  the NEO Personality Inventory-Revised  \cite{Costa1992}. 
-For the brain activity modality, we derived the following comparison function. For each scan, (i) 
-run the Configurable Pipeline for the Analysis of Connectomes (C-PAC) pipeline \cite{CPAC2015} to process the raw brain images yielding a parcellation into $197$ regions of interest, 
-(ii) run a spectral analysis on each region, (iii) bandpass and normalize it to sum to one, and (iv) calculate the Kullback-Leibler divergence across regions to obtain a similarity matrix across comparing all regions.  Then, use the normalized Hellinger distance to compute distances between each subject. 
-For the five-factor personality modality, we  used the Euclidean distance.
-% 
-%Figure \ref{f:real}{\color{magenta}A}  shows that many local scales yield significant p-values ($\approx 0.01$), whereas the global scale fails to detect this significant dependence. In fact, all previously proposed global dependence tests under consideration (\Mantel, \Dcorr, \Mcorr, or \Hhg) fail to detect dependence at a significance level of $0.05$ (see Table \ref{t:real}), and only \Mgc~provides insight into the scales of dependence.
-
-
-\begin{Table}
-\centering
-\captionof{table}{Wikipedia Features Matching Ratio}
-\label{table:wikiAcc}%
-\begin{tabular}{|c||c|c|c|c|c|}
-\hline
-Modalities & MMSJ & MDS & Isomap & LLE & LTSA \\
-\hline
-$(TE, TF)$ & $\textbf{0.2942}$  & $0.2546$ & $0.2003$ & $0.1265$ & $0.0491$\\
-\hline
-$(TE, GE)$ & $\textbf{0.1209}$  & $0.0675$ & $0.0866$ & $0.0143$ & $0.0260$\\
-\hline
-$(TF, GF)$ & $\textbf{0.0624}$  & $0.0419$ & $0.0522$ & $0.0134$ & $0.0144$\\
-\hline
-$(GE, GF)$ & $\textbf{0.1347}$  & $0.1280$ & $0.1081$ & $0.0157$ & $0.0236$\\
-\hline
-$(TE, GF)$ & $\textbf{0.0677}$  & $0.0429$ & $0.0560$ & $0.0132$ & $0.0138$\\
-\hline
-$(TF, GE)$ & $\textbf{0.0946}$  & $0.0545$ & $0.0698$ & $0.0132$ & $0.0238$\\
-\hline
-\end{tabular}
-\end{Table}
-
-\section{Concluding Remarks}
-\label{conclu}
-In summary, we propose a nonlinear manifold matching algorithm using shortest-path distance and joint neighborhood selection. The algorithm is straightforward to implement, and achieves superior and robust performance. It is able to significantly improve the testing power and matching ratio when matching modalities of distinct geometries, and is robust against noise and model selection. Our experiments indicate that the shortest-path distance and joint neighborhood selection are two key catalysts behind the improvement of the matching performance.
-
-Furthermore, the improvement in manifold matching motivates our follow-up work \citep{ShenEtAl2016} regarding dependency discovery by local scale, which makes use of the joint neighborhood and local distances in a similar manner.
-
-\section*{Acknowledgment}
-\addcontentsline{toc}{section}{Acknowledgment}
-This work is partially supported by the National Security Science and Engineering Faculty Fellowship (NSSEFF),
- the Johns Hopkins University Human Language Technology Center of Excellence (JHU HLT COE), and the
- XDATA program of the Defense Advanced Research Projects Agency (DARPA) administered through Air Force Research Laboratory contract FA8750-12-2-0303. This work is also supported by the Defense Advanced Research Projects Agency (DARPA) SIMPLEX program through SPAWAR contract N66001-15-C-4041 and DARPA GRAPHS N66001-14-1-4028.
-
-\bibliographystyle{model2-names}
-\bibliography{references}
 
 %\newpage 
 
