@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{50}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -295,12 +295,6 @@
   scaling: Perturbation analysis of classical scaling}.
 \newblock \bibinfo{journal}{Journal of the Royal Statistical Society. Series B}
   \bibinfo{volume}{41}, \bibinfo{pages}{217--229}.
-%Type = Article
-\bibitem[{de~Silva and Tenenbaum(2002)}]{SilvaTenenbaum2002}
-\bibinfo{author}{de~Silva, V.}, \bibinfo{author}{Tenenbaum, J.B.},
-  \bibinfo{year}{2002}.
-\newblock \bibinfo{title}{Unsupervised learning of curved manifolds}.
-\newblock \bibinfo{journal}{Nonlinear Estimation and Classification} .
 %Type = Article
 \bibitem[{de~Silva and Tenenbaum(2003)}]{SilvaTenenbaum2003}
 \bibinfo{author}{de~Silva, V.}, \bibinfo{author}{Tenenbaum, J.B.},
