@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2016.12.5)  3 JAN 2017 18:20
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2016.12.5)  3 JAN 2017 18:45
 entering extended mode
 **MMSJ.tex
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.tex
@@ -1068,48 +1068,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7]) [8
 
 ]
-File: SwissRollPower1.png Graphic file (type QTm)
- <use  "SwissRollPower1.png" >
-File: SwissRollNoisePower1.png Graphic file (type QTm)
-
-<use  "SwissRollNoisePower1.png" >
-File: SwissRollOutlierPower1.png Graphic file (type QTm)
- <use  "SwissRollOutlierPower1.png" >
-Overfull \hbox (10.0pt too wide) in paragraph at lines 377--386
- [][] 
- []
-
-File: SwissRollAcc1.png Graphic file (type QTm)
-<use  "SwissRollAcc1.png" >
-File: SwissRollNoiseAcc1.png Graphic file (type QTm)
- <use  "SwissRollNoiseAcc1.png" >
-File: SwissRollOutlierAcc1.png Graphic file (type QTm)
- <use  "SwissRollOutlierAcc1.png" >
-Overfull \hbox (10.0pt too wide) in paragraph at lines 392--401
- [][] 
- []
-
-File: WikiTETF.png Graphic file (type QTm)
-<use  "WikiTETF.png" >
-File: WikiTEGE.png Graphic file (type QTm)
- <use  "WikiTEGE.png" >
-File: WikiGEGF.png Graphic file (type QTm)
- <use  "WikiGEGF.png" >
-Overfull \hbox (10.0pt too wide) in paragraph at lines 407--416
- [][] 
- []
-
-[9
-
-
-] [10] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
+(C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
 Here is how much of TeX's memory you used:
- 16587 strings out of 429025
- 309850 string characters out of 3167800
- 367210 words of memory out of 3000000
- 19507 multiletter control sequences out of 15000+200000
+ 16573 strings out of 429025
+ 309626 string characters out of 3167800
+ 367190 words of memory out of 3000000
+ 19499 multiletter control sequences out of 15000+200000
  35428 words of font info for 105 fonts, out of 3000000 for 9000
  912 hyphenation exceptions out of 8191
  55i,15n,56p,1234b,732s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MMSJ.pdf (10 pages).
+Output written on MMSJ.pdf (8 pages).
