@@ -1,6 +1,6 @@
 function run_Swiss_Roll(option,matchingMethod,tran,reps)
 if nargin<1
-    option=1;%1 for vs sample size, 2 for vs noise level, 3 for vs outliers
+    option=1;%1 for vs training sample size, 2 for vs noise level, 3 for vs outliers, 4 for vs testing sample size
 end
 if nargin<2
     matchingMethod=2;
@@ -9,7 +9,7 @@ if nargin<3
     tran=1000;
 end
 if nargin<4
-    reps=100;
+    reps=20;
 end
 
 fpath = mfilename('fullpath');
@@ -37,6 +37,14 @@ switch option
     case 3
         numRange=0:0.01:0.1;
         fileName='ResultsOutlier';
+    case 4
+        Y_data=[Y_data' zeros(1, N)']';
+        disEuc=[X_data Y_data];
+        dis=squareform(pdist(disEuc'));
+        ss=size(dis,2)/2;
+        dis=[dis(1:ss, 1:ss) dis(ss+1:end, ss+1:end)];
+        numRange=100:100:1000;
+        fileName='ResultsTestingSize';
 end
 
 accMDS=zeros(length(numRange),1);powerMDS=zeros(length(numRange),21);
@@ -55,8 +63,10 @@ for i=1:length(numRange)
             perp=randperm(ceil(numRange(i)*tran));
             perp=[perp ceil(numRange(i)*tran)+1:N];
             Y_data2=[Y_data(:,perp)' zeros(1, N)']';
+       case 4
+           tesn=numRange(i);
     end
-    if option~=1
+    if option~=1 && option~=4
         disEuc=[X_data Y_data2];
         dis=squareform(pdist(disEuc'));
         ss=size(dis,2)/2;

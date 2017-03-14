@@ -85,10 +85,12 @@ There have been many recent endeavors regarding data fusion and manifold matchin
 
 Due to the success of nonlinear embedding algorithms for datasets of a single modality, it is often perceived that these algorithms can be directly combined into the matching framework to improve the matching performance when one or more modalities are nonlinear. A na\"ive procedure is to pick one nonlinear algorithm, apply it to each modality separately, and match the embedded modalities. But such a simplistic procedure does not always guarantee a good matching performance, since many nonlinear embedding algorithms only preserve the local geometry up to some affine transformation \citep{GoldbergRitov2008}. Furthermore, using nonlinear transformations separately can even deteriorate the matching performance when compared to using simple linear transformations, as shown in our numerical simulations.
 
-To tackle the problem, we propose a manifold matching algorithm using shortest-path distance and joint neighborhood selection. By utilizing a robust distance measure that approximates the geodesic distance, and effectively combining the correspondence information into the embedding step, the proposed algorithm can significantly improve the matching quality from disparate data sources, compared to directly take linear or nonlinear embeddings for matching. All code and data are available on our website \footnote{\url{https://github.com/cshen6/MMSJ}}.
+To tackle the problem, we propose a manifold matching algorithm using shortest-path distance and joint neighborhood selection. By utilizing a robust distance measure that approximates the geodesic distance, and effectively combining the correspondence information into the embedding step, the proposed algorithm can significantly improve the matching quality from disparate data sources, compared to directly take linear or nonlinear embeddings for matching. All code and data are made publicly available \footnote{\url{https://github.com/cshen6/MMSJ}}.
 
 \section{Manifold Matching}
 \label{main}
+
+In this section, the matching framework and evaluation criteria are first introduced. Next we present the main algorithm, followed by relevant implementation details. Additional discussions are offered on issues that can affect the matching performance.
 
 \subsection{The Matching Framework}
 \label{bg}
@@ -118,7 +120,7 @@ P&=\arg\min_{P'P=I} \|P \tilde{X}_{1}-\tilde{X}_{2}\|_{F}^{2},
 \end{align*}
 and sets $\hat{X}_{1}=P \tilde{X}_{1}$ and $\hat{X}_{2}=\tilde{X}_{2}$, where $\tilde{X}_{l}$ denotes the embedded data by MDS.
 
-Then each testing observation $y_{1} \in \Xi_{1}$ is mapped as follows: Given the distance between testing and training $\Delta_{1}(y_{1},X_{1})$ and the shortest-path distances for the training data $\Delta_{1}^{G}$, we first approximate the shortest-path distances $\Delta_{1}^{G}(y_{1},X_{1})$ by the respective nearest neighbors of the testing data within each modality. Then the testing data $y_{1}$ are embedded by MDS out-of-sampling (OOS) technique into $\mathbb{R}^{d}$ to yield $\tilde{y}_{1}$, followed by the Procrustes matching (i.e., $\hat{y}_{1}=P \tilde{y}_{1}$ or $\hat{y}_{2}=\tilde{y}_{2}$). Similarly for any $y_{2} \in \Xi_{2}$.
+Then each testing observation $y_{1} \in \Xi_{1}$ is mapped as follows: Given the distance between testing and training $\Delta_{1}(y_{1},X_{1})$ and the shortest-path distances for the training data $\Delta_{1}^{G}$, we first approximate the shortest-path distances $\Delta_{1}^{G}(y_{1},X_{1})$ by the respective nearest neighbors of the testing data within each modality. Then the testing data $y_{1}$ are embedded by MDS out-of-sampling (OOS) technique into $\mathbb{R}^{d}$ to yield $\tilde{y}_{1}$, followed by the Procrustes matching (i.e., $\hat{y}_{1}=P \tilde{y}_{1}$ or $\hat{y}_{2}=\tilde{y}_{2}$). Similarly for any $y_{2} \in \Xi_{2}$. Note that MMSJ merely requires the training observations from different modalities to be corresponded and of same size, but the testing observations from different modalities can be of different and arbitrary size, because they are separately mapped within each modality and of unknown correspondence. In the numerical experiments we opt to set the testing data to be of the same size for convenience of presentation and evaluation.
 
 \begin{algorithm}
 \caption{Manifold Matching using Shortest-Path Distance and Joint Neighborhood Selection (MMSJ)}
@@ -163,7 +165,7 @@ Then each testing observation $y_{1} \in \Xi_{1}$ is mapped as follows: Given th
 \end{algorithmic}
 \end{algorithm}
 
-To better visualize the process, we summarize the main algorithm in the flowchart of Figure~\ref{flow}.
+To better visualize the process, we summarize the main algorithm in the flowchart of Figure~\ref{flow}. 
 
 \begin{figure}[ht]
 \centering
@@ -202,7 +204,7 @@ To better visualize the process, we summarize the main algorithm in the flowchar
 
 \subsection{Implementation Details}
 \label{discuss}
-In this subsection, we discuss some implementation details of MMSJ.
+In this subsection, we elaborate on various implementation details of MMSJ.
 
 MMSJ starts with two distance matrices rather than the sample observations directly, which means it is directly applicable to multiple modalities of different feature dimensions, as long as a distance metric can be defined for each modality. Although there is no limitation on applying the algorithm once the distances are given, the actual matching performance is clearly dependent on the choice of the metric. The most common choice is the Euclidean distance, or $L^{p}$ metrics in general. Other similarity or dissimilarity measures may be more appropriate in certain domains, such as the cosine distance for text data (see Section~\ref{wikiReal}), or suitable kernels for structured data \citep{HofmannEtAl2008}. 
 
@@ -215,6 +217,17 @@ Embedding the shortest-path distances into the Euclidean space followed by match
 In terms of computation speed, suppose $n$ is the sample size of training pairs, and $n'$ is the size of all testing data. The running time complexity of MMSJ is $O(n^2+ n n')$, assuming the distance matrices are already given and the shortest-path step uses the fast landmark approximation. The only overhead is the distance matrix construction, which takes an additional $O(n^2 d+ nn' d)$, where $d$ denotes the maximal feature dimension among all modalities. Therefore MMSJ is computationally efficient for high-dimensional data or data with large amount of testing observations.
 
 To compare with MMSJ, we use the standard procedure that embed each modality separately by MDS / Isomap / LLE / LTSA, followed by Procrustes matching. Note that MDS / Isomap / LLE can all operate directly on a distance matrix, but some nonlinear algorithms like LTSA have to start with the Euclidean data rather than a distance measure. Thus, if only the distance matrices are available, the distance matrices are pre-embedded into a Euclidean space $\mathbb{R}^{d'}$ with $d' \geq d$ by MDS, followed by embedding into $\mathbb{R}^{d}$ via LTSA and matching by Procrustes.
+
+\subsection{Discussions}
+\label{discuss2}
+
+In this section, we offer further discussions on factors that can affect the matching performance.
+
+In general, other than which matching method to apply, the matching performance is further dependent on how match-able the actual data sets are. If the observations from different modalities are strongly linearly correlated (a simple example is two almost identical databases with trivial manual errors), the matching performance will likely be perfect for any matching method; if the two modalities are related via either a very complex or non-existent transformation (such that they appear to be almost independent, e.g., weather and stock price on the same day), there is no hope to recover any meaningful matching regardless of what method to use. However, if there are certain local information that are shared by different modalities (e.g., the Swiss roll example in Section~\ref{numer}), that is the situation that MMSJ may improve over other methods by extracting useful local correspondence via the joint graph and shortest-path distance. 
+
+Assuming the given modalities can be reasonably combined for matching, the size and selection of the training observations are critical for all matching methods (or generally any supervised learning task): If the given training data are representative of the underlying manifold, then it is like to identify the correct matching for any number of testing observations; but if the training data only reveal part of geometry, the matching performance will take a hit as testing observations increase. Of course, given the training data, whether the underlying manifold can be correctly recovered is also dependent on the embedding method. So alternatively, the advantage of MMSJ can be viewed as requiring much less training data to capture the manifolds for matching, e.g., Figure~\ref{fig2}(A) can be interpreted as that MMSJ only takes around $1000$ observations to uncover the intrinsic manifolds for perfect matching, while all other benchmarks require much larger sample size.
+
+Another performance factor is the out-of-sampling technique. It has been popularly used as a fast approximation for distance-based embedding, and often called the Nystrom approximation \cite{Mahoney2005} in numerical analysis. Clearly, different sampled landmark points will yield different embeddings of the out-of-sample observations, so the matching performance can be affected if the landmark points are not chosen appropriately. It turns out that the role of landmark points is similar to the role of the training data: if the in-sample landmark data approximately represent the whole manifold, then the out-of-sample embedded points are generally faithful to the original geometry; but if the in-sample data fail to reflect the manifold, then the out-of-sample embedded observations will have a larger discrepancy. Therefore, in order to minimize the effect of OOS in the matching task, the suggested strategy is to take all training data as the in-sample observations and embed the testing data via OOS, which is applied to MMSJ and all benchmarks in the experiments.
 
 \section{Numerical Experiments}
 \label{numer}
@@ -233,18 +246,11 @@ The Swiss roll data from \citep{TenenbaumSilvaLangford2000} is a 3D dataset repr
 For the first simulation, we match the 3D Swiss roll with its underlying 2D linear manifold at varying training data size. A total of $n$ points from the 3D Swiss roll are randomly generated to construct the first modality $X_{1}$, and the corresponding points on the underlying 2D linear manifold are taken as the second modality $X_{2}$. Thus $X_{1}$ and $X_{2}$ are matched training data with distinct geometries. Once the training data are matched, we embed and apply the learned mappings to new testing observations $y_{1}$ and $y_{2}$ in each space.
 
 We set the neighborhood size as $k=10$, the dimension choice as $d=2$, and generate $n'=100$ testing pairs to compute the matching ratio. We repeat the above process for $100$ Monte-Carlo replicates, and show the average matching ratio in Figure~\ref{fig2}(A) with respect to increasing training data at $n=50,100,\ldots,1000$. 
-%used $100$ matched testing pairs and $100$ unmatched testing pairs to calculate the test statistic under the null and the alternative hypotheses. 
-%The mean testing powers with respect to the increasing type $1$ error level are plotted in Figure~\ref{fig2}(a). The matching ratio was estimated based on the same $100$ matched testing pairs from $100$ MC replicates, which is shown in the first row of Table~\ref{table:Swiss}. 
 The MMSJ algorithm exhibits a significant advantage over all other algorithms: it enjoys a better matching ratio from small sample size onwards, and achieves almost perfect matching as sample size grows.
-%MDS and LTSA have the worst matching performance, while Isomap and LLE perform reasonably well.
 
 Next, we check the robustness of the manifold matching algorithms against noise, by adding white noise to the linear modality $X_{2}$ and fixing the training data size to $n=1000$. The noise is independently and identically distributed as $Normal(0, \epsilon I_{2 \times 2})$, and the same testing procedure is applied to compute the matching ratio at increasing noise levels. The results are plotted in Figure~\ref{fig2}(B) with respect to $\epsilon = 0,1,2,\ldots,10$. The MMSJ algorithm is clearly better than all the benchmarks as the noise level increases.
 
 For the third simulation, we consider an outlier scenario that randomly permutes a portion of the training data. For $\epsilon=0,0.01,\ldots,0.1$, we randomly pick $\epsilon n$ training data from $X_{2}$ and permute their indices, such that those training data are no longer matched with the corresponding observations from $X_{1}$, i.e., there exists $\epsilon n$ outliers in the training data. Fixing $n=1000$, we apply the same testing procedure and plot the matching ratio in Figure~\ref{fig2}(C) with respect to the outlier percentage $\epsilon$. The MMSJ algorithm again has better matching ratio throughout increasing $\epsilon$; and all methods exhibit insignificant matching ratio when the outlier percentage $\epsilon$ reaches beyond $0.1$, implying that the matching task may benefit significantly from excluding outliers prior to matching.
-
-%For the third simulation, we matched two linear modalities: instead of the 3D Swiss roll, we used the 2D LLE embedding as $X_{1}$; thus $X_{1}$ and $X_{2}$ are both linear with some differences. Using the same procedure and parameters as the first simulation, the testing power is plotted in Figure~\ref{fig2}(d) and the matching ratio is shown in the second row of Table~\ref{table:Swiss}. In this case MMSJ, MDS, and Isomap had similar performances while LLE and LTSA were slightly worse, which indicates that the shortest-path distance is more robust when matching noisy linear manifolds. Note that the matching ratio and testing power here were lower than those in the first simulation, because the LLE embedding has a distorted linear geometry. 
-
-%Note that the testing powers of all three simulations as well as the CCA matching results are shown in Appendix, which yields similar interpretations regarding the MMSJ superiority.
 
 \begin{figure*}
   \centering
@@ -274,10 +280,7 @@ For each Monte-Carlo replicate, we randomly pick $n=500$ pairs of training obser
 Clearly, MMSJ achieves the best performance throughout all combinations. From the tables and figures, we further observe that without using shortest-path distance or joint neighborhood, separate nonlinear embeddings from LLE or LTSA are worse than the linear MDS embeddings in matching. Isomap does fairly well in the testing power, as it also uses shortest-path distance, but it can still be occasionally similar or slightly inferior to MDS in the matching ratio. Our proposed MMSJ algorithm is consistently the best manifold matching algorithm in both the testing power and the matching ratio.
 
 For the next experiment, we demonstrate that MMSJ algorithm is also robust against misspecification of parameters. The first two panels of Figure~\ref{figRealSurf} plot the MMSJ and Isomap testing powers (the best two algorithms in our matching experiments) for matching $(TE,GE)$, against different choices of $d \in [2,30]$ and $k \in [10,30]$. Comparing the two panels not only shows that MMSJ is always better than Isomap in matching, but it also attains comparable testing power in a wide range of parameter choices.
-%; the best MMSJ testing power is $0.55$ while the best Isomap testing power is $0.45$. 
 The same robustness holds for MMSJ under all other matching combinations. 
-
-%Note that choosing $k$ and $d$ for the Swiss roll data is quite easy, because the neighborhood size has been validated by many previous works and the embedding dimension should equal the intrinsic true dimension. But for real data experiments, the parameter choice is usually dependent on the later inference task.
 
 \begin{Table}
 \centering

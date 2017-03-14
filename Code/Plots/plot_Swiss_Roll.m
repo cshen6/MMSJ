@@ -21,7 +21,7 @@ map1(5,:) = [0 0 0];
 %cmap(6,:) = [0.5 0.5 0];
 set(groot,'defaultAxesColorOrder',map1);
 
-for i=1:3
+for i=1:4
     switch i
         case 1
             fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'Results.mat');
@@ -40,6 +40,12 @@ for i=1:3
             xla='Percentage of Outliers';
             figureName='SwissRollOutlier';
             tit='Swiss Roll with Outliers';
+            lgdLoc='NorthEast';
+        case 4
+            fileName=strcat(rootDir,'Data/Results/SwissRoll',num2str(matchingMethod),'ResultsTestingSize.mat');
+            xla='Number of Testing Data';
+            figureName='SwissRollSize';
+            tit='Swiss Roll';
             lgdLoc='NorthEast';
     end
     

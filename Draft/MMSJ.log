@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2016.12.5)  3 JAN 2017 18:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  26 FEB 2017 12:30
 entering extended mode
 **MMSJ.tex
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.tex
@@ -18,14 +18,14 @@ Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
-\c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
@@ -42,10 +42,18 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: xetex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\xetex.def"
-File: xetex.def 2016/07/11 v4.10 LaTeX color/graphics driver for XeTeX (L3/RRM/JK)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -159,7 +167,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -181,18 +189,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen117
 \Gm@dimlist=\toks17
 
-("C:\Program Files\MiKTeX 2.9\tex\xelatex\xetexconfig\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo"
 File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
 \mathindent=\dimen118
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen119
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: xetex.def on input line 130.
+Package color Info: Driver file: pdftex.def on input line 130.
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip47
@@ -202,7 +210,6 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameSep=\dimen123
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
  ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -546,7 +553,6 @@ LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
 \linenopenalty=\count119
 \output=\toks33
 \linenoprevgraf=\count120
@@ -658,23 +664,18 @@ Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Driver file for pgf: pgfsys-xetex.def
+Driver file for pgf: pgfsys-pdftex.def
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-xetex.def"
-File: pgfsys-xetex.def 2013/07/16  (rcs-revision 1.9)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-dvipdfmx.def"
-File: pgfsys-dvipdfmx.def 2013/08/28  (rcs-revision 1.12)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def"
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
-)
-\pgfsys@objnum=\count138
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count139
-\pgfsyssoftpath@bigbuffer@items=\count140
+\pgfsyssoftpath@smallbuffer@items=\count138
+\pgfsyssoftpath@bigbuffer@items=\count139
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex"
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -684,9 +685,10 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 LaTeX Info: Redefining \color on input line 702.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -702,7 +704,7 @@ Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
 \pgfmath@dimen=\dimen156
-\pgfmath@count=\count141
+\pgfmath@count=\count140
 \pgfmath@box=\box36
 \pgfmath@toks=\toks41
 \pgfmath@stack@operand=\toks42
@@ -718,7 +720,7 @@ Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex")))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count142
+\c@pgfmathroundto@lastzeros=\count141
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex"
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
@@ -752,7 +754,7 @@ File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 \pgfpic=\box37
 \pgf@hbox=\box38
 \pgf@layerbox@main=\box39
-\pgf@picture@serial@count=\count143
+\pgf@picture@serial@count=\count142
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex"
 File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
@@ -780,7 +782,7 @@ File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen180
-\pgf@sys@shading@range@num=\count144
+\pgf@sys@shading@range@num=\count143
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex"
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -832,7 +834,7 @@ Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
-\pgf@plot@mark@count=\count145
+\pgf@plot@mark@count=\count144
 \pgfplotmarksize=\dimen185
 )
 \tikz@lastx=\dimen186
@@ -845,18 +847,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
 \tikz@figbox@bg=\box43
 \tikz@tempbox=\box44
 \tikz@tempbox@bg=\box45
-\tikztreelevel=\count146
-\tikznumberofchildren=\count147
-\tikznumberofcurrentchild=\count148
-\tikz@fig@count=\count149
+\tikztreelevel=\count145
+\tikznumberofchildren=\count146
+\tikznumberofcurrentchild=\count147
+\tikz@fig@count=\count148
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count150
-\pgfmatrixcurrentcolumn=\count151
-\pgf@matrix@numberofcolumns=\count152
+\pgfmatrixcurrentrow=\count149
+\pgfmatrixcurrentcolumn=\count150
+\pgf@matrix@numberofcolumns=\count151
 )
-\tikz@expandcount=\count153
+\tikz@expandcount=\count152
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
@@ -907,7 +909,21 @@ LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Try loading font information for OT1+txr on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
+) ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count153
+\scratchdimen=\dimen193
+\scratchbox=\box46
+\nofMPsegments=\count154
+\nofMParguments=\count155
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count156
+\MPscratchDim=\dimen194
+\MPnumerator=\count157
+\makeMPintoPDFobject=\count158
+\everyMPtoPDFconversion=\toks47
 )
+*geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
@@ -981,11 +997,14 @@ Overfull \hbox (71.19522pt too wide) in alignment at lines 75--75
 
 Underfull \vbox (badness 3536) has occurred while \output is active []
 
-File: elsevier-logo.pdf Graphic file (type QTm)
- <use  "elsevier-logo.pdf" >
-LaTeX Font Info:    Try loading font information for OT1+txss on input line 85.
+ <elsevier-logo.pdf, id=4, 73.71541pt x 80.9424pt>
+File: elsevier-logo.pdf Graphic file (type pdf)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txss.fd"
+<use elsevier-logo.pdf>
+Package pdftex.def Info: elsevier-logo.pdf used on input line 85.
+(pdftex.def)             Requested size: 58.97238pt x 64.754pt.
+LaTeX Font Info:    Try loading font information for OT1+txss on input line 85.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txss.fd"
 File: ot1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
@@ -995,87 +1014,125 @@ Overfull \hbox (1.90001pt too wide) has occurred while \output is active
  []
  []
 
-[1
+[1{C:/Users/Charlie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-]
-Underfull \vbox (badness 1062) has occurred while \output is active []
+ <C:/Work/Applications/GitHub/MMSJ/Draft/elsevier-logo.pdf>]
+Underfull \vbox (badness 2073) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 1092) in paragraph at lines 113--114
+Underfull \hbox (badness 1092) in paragraph at lines 115--116
 \OT1/txr/m/n/10 1\OML/txmi/m/it/10 ; \OT1/txr/m/n/10 2\OMS/txsy/m/n/10 g$\OT1/txr/m/n/10 , we first con-struct an $\OML/
-txmi/m/it/10 n \OMS/txsy/m/n/10 ^^B \OML/txmi/m/it/10 n$ \OT1/txr/m/n/10 bi-nary graph $\OML/txmi/m/it/10 G$ \OT1/txr/m/
-n/10 by k-
+txmi/m/it/10 n \OMS/txsy/m/n/10  \OML/txmi/m/it/10 n$ \OT1/txr/m/n/10 bi-nary graph $\OML/txmi/m/it/10 G$ \OT1/txr/m/n/
+10 by k-
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 115--116
+Underfull \hbox (badness 1237) in paragraph at lines 117--118
 []\OT1/txr/m/n/10 Next, for each modal-ity $\OML/txmi/m/it/10 X[]$\OT1/txr/m/n/10 , we cal-cu-late the shortest-
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 133.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 135.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 133.
-[3]
-File: Swiss.png Graphic file (type QTm)
- <use  "Swiss.png" >
-Overfull \hbox (9.0pt too wide) in paragraph at lines 228--229
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 135.
+[3] [4] <Swiss.png, id=34, 809.424pt x 607.068pt>
+File: Swiss.png Graphic file (type png)
+ <use Swiss.png>
+Package pdftex.def Info: Swiss.png used on input line 241.
+(pdftex.def)             Requested size: 261.0pt x 195.74782pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 241--242
  [][] 
  []
 
-[4]
-File: SwissRollAcc1.png Graphic file (type QTm)
- <use  "SwissRollAcc1.png" >
-File: SwissRollNoiseAcc1.png Graphic file (type QTm)
- <use  "SwissRollNoiseAcc1.png" >
-File: SwissRollOutlierAcc1.png Graphic file (type QTm)
- <use  "SwissRollOutlierAcc1.png" >
-Overfull \hbox (10.0pt too wide) in paragraph at lines 251--260
+<SwissRollAcc1.png, id=36, 578.16pt x 433.62pt>
+File: SwissRollAcc1.png Graphic file (type png)
+ <use SwissRollAcc1.png>
+Package pdftex.def Info: SwissRollAcc1.png used on input line 259.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+
+<SwissRollNoiseAcc1.png, id=37, 578.16pt x 433.62pt>
+File: SwissRollNoiseAcc1.png Graphic file (type png)
+ <use SwissRollNoiseAcc1.png>
+Package pdftex.def Info: SwissRollNoiseAcc1.png used on input line 260.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+
+<SwissRollOutlierAcc1.png, id=38, 578.16pt x 433.62pt>
+File: SwissRollOutlierAcc1.png Graphic file (type png)
+ <use SwissRollOutlierAcc1.png>
+Package pdftex.def Info: SwissRollOutlierAcc1.png used on input line 261.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 257--266
+ [][] 
+ []
+
+[5 <C:/Work/Applications/GitHub/MMSJ/Draft/Swiss.png>]
+Overfull \hbox (4.22pt too wide) in paragraph at lines 289--306
  [][] 
  []
 
 
-Overfull \hbox (4.22pt too wide) in paragraph at lines 286--303
+Overfull \hbox (4.22pt too wide) in paragraph at lines 312--329
  [][] 
  []
 
+<WikiTEGESurf1.png, id=43, 578.16pt x 433.62pt>
+File: WikiTEGESurf1.png Graphic file (type png)
+ <use WikiTEGESurf1.png>
+Package pdftex.def Info: WikiTEGESurf1.png used on input line 335.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <WikiTEGESurf2.png, id=44, 578.16pt x 433.62pt>
+File: WikiTEGESurf2.png Graphic file (type png)
 
-Overfull \hbox (4.22pt too wide) in paragraph at lines 309--326
+<use WikiTEGESurf2.png>
+Package pdftex.def Info: WikiTEGESurf2.png used on input line 336.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+ <BrainAcc1.png, id=45, 578.16pt x 433.62pt>
+File: BrainAcc1.png Graphic file (type png)
+ <use BrainAcc1.png>
+Package pdftex.def Info: BrainAcc1.png used on input line 337.
+(pdftex.def)             Requested size: 167.04382pt x 125.27681pt.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 333--341
  [][] 
  []
 
+[6 <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollAcc1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRo
+llNoiseAcc1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollOutlierAcc1.png (PNG copy)>]
+(C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.bbl [7 <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGESurf1.png (PNG copy)
+> <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGESurf2.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/BrainAcc
+1.png (PNG copy)>]
+Missing character: There is no â in font txr!
+Missing character: There is no € in font txr!
+Missing character: There is no “ in font txr!
+Missing character: There is no Ã in font txr!
+Missing character: There is no © in font txr!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-File: WikiTEGESurf1.png Graphic file (type QTm)
- <use  "WikiTEGESurf1.png" >
-File: WikiTEGESurf2.png Graphic file (type QTm)
-
-<use  "WikiTEGESurf2.png" >
-File: BrainAcc1.png Graphic file (type QTm)
- <use  "BrainAcc1.png" >
-Overfull \hbox (10.0pt too wide) in paragraph at lines 330--338
- [][] 
- []
-
-[6] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.bbl
-Missing character: There is no Ã© in font txr!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]) [8
-
-]
+) [8]
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
 Here is how much of TeX's memory you used:
- 16573 strings out of 429025
- 309626 string characters out of 3167800
- 367190 words of memory out of 3000000
- 19499 multiletter control sequences out of 15000+200000
- 35428 words of font info for 105 fonts, out of 3000000 for 9000
- 912 hyphenation exceptions out of 8191
+ 17156 strings out of 493921
+ 325267 string characters out of 3147277
+ 378139 words of memory out of 3000000
+ 20041 multiletter control sequences out of 15000+200000
+ 57710 words of font info for 140 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
  55i,15n,56p,1234b,732s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on MMSJ.pdf (8 pages, 2149319 bytes).
+PDF statistics:
+ 95 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on MMSJ.pdf (8 pages).
