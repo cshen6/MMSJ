@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  2 APR 2017 20:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  3 APR 2017 15:51
 entering extended mode
 **MMSJ.tex
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.tex
@@ -1103,35 +1103,54 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 333--341
 llNoiseAcc1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollOutlierAcc1.png (PNG copy)>]
 (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.bbl [7 <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTEGESurf1.png> <C:/Work/
 Applications/GitHub/MMSJ/Draft/WikiTEGESurf2.png> <C:/Work/Applications/GitHub/MMSJ/Draft/BrainAcc1.png (PNG copy)>]
-Missing character: There is no â in font txr!
-Missing character: There is no € in font txr!
-Missing character: There is no “ in font txr!
-Missing character: There is no Ã in font txr!
-Missing character: There is no © in font txr!
+Underfull \hbox (badness 1019) in paragraph at lines 79--81
+[]\OT1/txr/m/n/8 J. R. Ket-ten-ring, ``Canon-i-cal anal-y-sis of sev-eral sets of vari-ables,''
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-) [8]
-(C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
+
+Underfull \hbox (badness 2799) in paragraph at lines 162--166
+\OT1/txr/m/n/8 pro-gram-ming for graph match-ing,'' \OT1/txr/m/it/8 PLOS ONE\OT1/txr/m/n/8 , vol. 10, no. 4,
+ []
+
+Missing character: There is no â in font txr!
+Missing character: There is no € in font txr!
+Missing character: There is no “ in font txr!
+
+Underfull \hbox (badness 6110) in paragraph at lines 234--237
+[]\OT1/txr/m/n/8 C. Shen, C. E. Priebe, M. Mag-gioni, and J. T. Vo-gel-stein,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--237
+\OT1/txr/m/n/8 ``Dis-cov-er-ing re-la-tion-ships across dis-parate data modal-i-ties,''
+ []
+
+Missing character: There is no Ã in font txr!
+Missing character: There is no © in font txr!
+) [8] (C:\Work\Applications\GitHub\MMSJ\Draft\MMSJ.aux) ) 
 Here is how much of TeX's memory you used:
- 17156 strings out of 493921
- 325267 string characters out of 3147277
- 378139 words of memory out of 3000000
- 20041 multiletter control sequences out of 15000+200000
+ 17140 strings out of 493921
+ 325068 string characters out of 3147277
+ 376215 words of memory out of 3000000
+ 20025 multiletter control sequences out of 15000+200000
  57710 words of font info for 140 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  55i,15n,56p,1234b,732s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MMSJ.pdf (8 pages, 2165134 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8
+a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on MMSJ.pdf (8 pages, 2170348 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
+ 101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

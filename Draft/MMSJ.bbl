@@ -1,419 +1,253 @@
-\begin{thebibliography}{51}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\providecommand{\url}[1]{\texttt{#1}}
-\providecommand{\href}[2]{#2}
-\providecommand{\path}[1]{#1}
-\providecommand{\DOIprefix}{doi:}
-\providecommand{\ArXivprefix}{arXiv:}
-\providecommand{\URLprefix}{URL: }
-\providecommand{\Pubmedprefix}{pmid:}
-\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
-\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
-\providecommand{\bibinfo}[2]{#2}
-\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
-%Type = Techreport
-\bibitem[{Bach and Jordan(2005)}]{BachJordan2005}
-\bibinfo{author}{Bach, F.R.}, \bibinfo{author}{Jordan, M.I.},
-  \bibinfo{year}{2005}.
-\newblock \bibinfo{title}{A Probabilistic Interpretation of Canonical
-  Correlation Analysis}.
-\newblock \bibinfo{type}{Technical Report}. Department of Statistics, UC
-  Berkeley.
-%Type = Article
-\bibitem[{Belkin and Niyogi(2003)}]{BelkinNiyogi2003}
-\bibinfo{author}{Belkin, M.}, \bibinfo{author}{Niyogi, P.},
-  \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{Laplacian eigenmaps for dimensionality reduction and
-  data representation}.
-\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{15},
-  \bibinfo{pages}{1373--1396}.
-%Type = Inproceedings
-\bibitem[{Bengio et~al.(2003)Bengio, Paiement and Vincent}]{BengioEtal2003}
-\bibinfo{author}{Bengio, Y.}, \bibinfo{author}{Paiement, J.F.},
-  \bibinfo{author}{Vincent, P.}, \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{Out-of-sample extensions for {LLE}, {Isomap}, {MDS},
-  {Eigenmaps}, and {Spectral Clustering}}, in: \bibinfo{booktitle}{Advances in
-  Neural Information Processing Systems}, \bibinfo{publisher}{MIT Press}. pp.
-  \bibinfo{pages}{177--184}.
-%Type = Misc
-\bibitem[{Bernstein et~al.(2000)Bernstein, de~Silva, Langford and
-  Tenenbaum}]{BernsteinEtAl2000}
-\bibinfo{author}{Bernstein, M.}, \bibinfo{author}{de~Silva, V.},
-  \bibinfo{author}{Langford, J.C.}, \bibinfo{author}{Tenenbaum, J.B.},
-  \bibinfo{year}{2000}.
-\newblock \bibinfo{title}{Graph approximations to geodesics on embedded
-  manifolds}.
-%Type = Book
-\bibitem[{Borg and Groenen(2005)}]{BorgBook}
-\bibinfo{author}{Borg, I.}, \bibinfo{author}{Groenen, P.},
-  \bibinfo{year}{2005}.
-\newblock \bibinfo{title}{Modern Multidimensional Scaling: theory and
+\begin{thebibliography}{10}
+
+\bibitem{JolliffePCABook}
+I.~T. Jolliffe, {\em Principal Component Analysis}.
+\newblock Springer, 2nd~ed., 2002.
+
+\bibitem{BishopTipping1999}
+M.~E. Tipping and C.~M. Bishop, ``Probabilistic principal component analysis,''
+  {\em Journal of the Royal Statistical Society, Series B}, vol.~61,
+  pp.~611--622, 1999.
+
+\bibitem{TorgersonBook}
+W.~Torgerson, {\em Multidimensional Scaling: I. {Theory} and method}.
+\newblock Psychometrika, 1952.
+
+\bibitem{BorgBook}
+I.~Borg and P.~Groenen, {\em Modern Multidimensional Scaling: theory and
   applications}.
-\newblock \bibinfo{publisher}{Springer-Verlag}.
-%Type = Article
-\bibitem[{Conte et~al.(2004)Conte, Foggia, Sansone and Vento}]{ConteEtAl2004}
-\bibinfo{author}{Conte, D.}, \bibinfo{author}{Foggia, P.},
-  \bibinfo{author}{Sansone, C.}, \bibinfo{author}{Vento, M.},
-  \bibinfo{year}{2004}.
-\newblock \bibinfo{title}{Thirty years of graph matching in pattern
-  recognition}.
-\newblock \bibinfo{journal}{International Journal of Pattern Recognition and
-  Artificial Intelligence} \bibinfo{volume}{18}, \bibinfo{pages}{265--298}.
-%Type = Book
-\bibitem[{Cox and Cox(2001)}]{CoxBook}
-\bibinfo{author}{Cox, T.}, \bibinfo{author}{Cox, M.}, \bibinfo{year}{2001}.
-\newblock \bibinfo{title}{Multidimensional Scaling}.
-\newblock \bibinfo{publisher}{Chapman and Hall}.
-%Type = Article
-\bibitem[{Deerwester et~al.(1990)Deerwester, Dumais, Landauer, Furnas and
-  Harshman}]{DeerwesterDumais1990}
-\bibinfo{author}{Deerwester, S.}, \bibinfo{author}{Dumais, S.},
-  \bibinfo{author}{Landauer, T.}, \bibinfo{author}{Furnas, G.},
-  \bibinfo{author}{Harshman, R.}, \bibinfo{year}{1990}.
-\newblock \bibinfo{title}{Indexing by latent semantic analysis}.
-\newblock \bibinfo{journal}{Journal of the American Society of Information
-  Science} \bibinfo{volume}{41}, \bibinfo{pages}{391--407}.
-%Type = Inproceedings
-\bibitem[{Donoho and Grimes(2003)}]{DonohoGrimes2003}
-\bibinfo{author}{Donoho, D.}, \bibinfo{author}{Grimes, C.},
-  \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{Hessian eigenmaps: New locally linear embedding
-  techniques for high-dimensional data}, in: \bibinfo{booktitle}{Proceedings of
-  the National Academy of Arts and Sciences}, pp. \bibinfo{pages}{5591--5596}.
-%Type = Article
-\bibitem[{Drineas and Mahoney(2005)}]{Mahoney2005}
-\bibinfo{author}{Drineas, P.}, \bibinfo{author}{Mahoney, M.},
-  \bibinfo{year}{2005}.
-\newblock \bibinfo{title}{On the {Nystrom} method for approximating a {Gram}
-  matrix for improved kernel-based learning}.
-\newblock \bibinfo{journal}{Journal of Machine Learning Research}
-  \bibinfo{volume}{6}, \bibinfo{pages}{2153–2175}.
-%Type = Inproceedings
-\bibitem[{Fiori et~al.(2013)Fiori, Sprechmann, Vogelstein, Musé and
-  Sapiro}]{FioriEtAl2013}
-\bibinfo{author}{Fiori, M.}, \bibinfo{author}{Sprechmann, P.},
-  \bibinfo{author}{Vogelstein, J.}, \bibinfo{author}{Musé, P.},
-  \bibinfo{author}{Sapiro, G.}, \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Robust multimodal graph matching: Sparse coding meets
-  graph matching}, in: \bibinfo{booktitle}{Advances in Neural Information
-  Processing Systems}, pp. \bibinfo{pages}{127--135}.
-%Type = Article
-\bibitem[{Fishkind et~al.(2016)Fishkind, Shen, Park and
-  Priebe}]{FishkindShenPriebe2016}
-\bibinfo{author}{Fishkind, D.}, \bibinfo{author}{Shen, C.},
-  \bibinfo{author}{Park, Y.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{year}{2016}.
-\newblock \bibinfo{title}{On the incommensurability phenomenon}.
-\newblock \bibinfo{journal}{Journal of Classification}
-  \bibinfo{volume}{accepted}.
-%Type = Article
-\bibitem[{Goldberg and Ritov(2008)}]{GoldbergRitov2008}
-\bibinfo{author}{Goldberg, Y.}, \bibinfo{author}{Ritov, Y.},
-  \bibinfo{year}{2008}.
-\newblock \bibinfo{title}{Manifold learning: the price of normalization}.
-\newblock \bibinfo{journal}{Journal of Machine learning research}
-  \bibinfo{volume}{9}, \bibinfo{pages}{1909--1939}.
-%Type = Article
-\bibitem[{Goldberg and Ritov(2009)}]{GoldbergRitov2009}
-\bibinfo{author}{Goldberg, Y.}, \bibinfo{author}{Ritov, Y.},
-  \bibinfo{year}{2009}.
-\newblock \bibinfo{title}{Local {Procrustes} for manifold embedding: a measure
-  of embedding quality and embedding algorithms}.
-\newblock \bibinfo{journal}{Machine learning} \bibinfo{volume}{77},
-  \bibinfo{pages}{1--25}.
-%Type = Book
-\bibitem[{Gower and Dijksterhuis(2004)}]{GowerProcrustesBook}
-\bibinfo{author}{Gower, J.C.}, \bibinfo{author}{Dijksterhuis, G.B.},
-  \bibinfo{year}{2004}.
-\newblock \bibinfo{title}{{Procrustes} Problems}.
-\newblock \bibinfo{publisher}{Oxford University Press}.
-%Type = Article
-\bibitem[{Gray~Roncal et~al.(2013)Gray~Roncal, Koterba, Mhembere, Kleissas,
-  Vogelstein, Burns, Bowles, Donavos, Ryman, Jung, Wu, Calhoun and
-  Vogelstein}]{GrayRoncal2013}
-\bibinfo{author}{Gray~Roncal, W.}, \bibinfo{author}{Koterba, Z.H.},
-  \bibinfo{author}{Mhembere, D.}, \bibinfo{author}{Kleissas, D.M.},
-  \bibinfo{author}{Vogelstein, J.T.}, \bibinfo{author}{Burns, R.},
-  \bibinfo{author}{Bowles, A.R.}, \bibinfo{author}{Donavos, D.K.},
-  \bibinfo{author}{Ryman, S.}, \bibinfo{author}{Jung, R.E.},
-  \bibinfo{author}{Wu, L.}, \bibinfo{author}{Calhoun, V.D.},
-  \bibinfo{author}{Vogelstein, R.J.}, \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{{MIGRAINE}: {MRI} graph reliability analysis and
-  inference for connectomics}.
-\newblock \bibinfo{journal}{Global Conference on Signal and Information
-  Processing} .
-%Type = Article
-\bibitem[{Hardoon et~al.(2004)Hardoon, Szedmak and Shawe-Taylor}]{Hardoon2004}
-\bibinfo{author}{Hardoon, D.R.}, \bibinfo{author}{Szedmak, S.},
-  \bibinfo{author}{Shawe-Taylor, J.}, \bibinfo{year}{2004}.
-\newblock \bibinfo{title}{Canonical correlation analysis: An overview with
-  application to learning methods}.
-\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{16},
-  \bibinfo{pages}{2639--2664}.
-%Type = Article
-\bibitem[{He et~al.(2005)He, Yan, Hu, Niyogi and Zhang}]{HeEtAl2005}
-\bibinfo{author}{He, X.}, \bibinfo{author}{Yan, S.}, \bibinfo{author}{Hu, Y.},
-  \bibinfo{author}{Niyogi, P.}, \bibinfo{author}{Zhang, H.},
-  \bibinfo{year}{2005}.
-\newblock \bibinfo{title}{Face recognition using {Laplacianfaces}}.
-\newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence} \bibinfo{volume}{27}, \bibinfo{pages}{328--340}.
-%Type = Article
-\bibitem[{Hofmann et~al.(2008)Hofmann, Scholkopf and Smola}]{HofmannEtAl2008}
-\bibinfo{author}{Hofmann, T.}, \bibinfo{author}{Scholkopf, B.},
-  \bibinfo{author}{Smola, A.}, \bibinfo{year}{2008}.
-\newblock \bibinfo{title}{Kernel methods in machine learning}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{36},
-  \bibinfo{pages}{1171--1220}.
-%Type = Article
-\bibitem[{Hotelling(1936)}]{Hotelling1936}
-\bibinfo{author}{Hotelling, H.}, \bibinfo{year}{1936}.
-\newblock \bibinfo{title}{Relations between two sets of variates}.
-\newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{28},
-  \bibinfo{pages}{321--377}.
-%Type = Inproceedings
-\bibitem[{Jiang et~al.(2008)Jiang, Zheng, Toga and Tu}]{JJ2008}
-\bibinfo{author}{Jiang, J.}, \bibinfo{author}{Zheng, S.},
-  \bibinfo{author}{Toga, A.}, \bibinfo{author}{Tu, Z.}, \bibinfo{year}{2008}.
-\newblock \bibinfo{title}{Learning based coarse-to-fine image registration},
-  in: \bibinfo{booktitle}{Proceedings of IEEE Conference on Computer Vision and
-  Pattern Recognition (CVPR)}.
-%Type = Book
-\bibitem[{Jolliffe(2002)}]{JolliffePCABook}
-\bibinfo{author}{Jolliffe, I.T.}, \bibinfo{year}{2002}.
-\newblock \bibinfo{title}{Principal Component Analysis}.
-\newblock \bibinfo{edition}{2nd} ed., \bibinfo{publisher}{Springer}.
-%Type = Article
-\bibitem[{Kettenring(1971)}]{Kettenring1971}
-\bibinfo{author}{Kettenring, J.R.}, \bibinfo{year}{1971}.
-\newblock \bibinfo{title}{Canonical analysis of several sets of variables}.
-\newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{58},
-  \bibinfo{pages}{433--451}.
-%Type = Article
-\bibitem[{Kim et~al.(2007)Kim, Kittler and Cipolla}]{KimKittlerCipolla2007}
-\bibinfo{author}{Kim, T.K.}, \bibinfo{author}{Kittler, J.},
-  \bibinfo{author}{Cipolla, R.}, \bibinfo{year}{2007}.
-\newblock \bibinfo{title}{Discriminative learning and recognition of image set
-  classes using canonical correlations}.
-\newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence} \bibinfo{volume}{29}, \bibinfo{pages}{1005--1018}.
-%Type = Article
-\bibitem[{Lafon et~al.(2006)Lafon, Keller and Coifman}]{LafonKellerCoifman2006}
-\bibinfo{author}{Lafon, S.}, \bibinfo{author}{Keller, Y.},
-  \bibinfo{author}{Coifman, R.}, \bibinfo{year}{2006}.
-\newblock \bibinfo{title}{Data fusion and multi-cue data matching by difusion
-  maps}.
-\newblock \bibinfo{journal}{IEEE transactions on Pattern Analysis and Machine
-  Intelligence} \bibinfo{volume}{28}, \bibinfo{pages}{1784--1797}.
-%Type = Article
-\bibitem[{Lyzinski et~al.(2016)Lyzinski, Fishkind, Fiori, Vogelstein, Priebe
-  and Sapiro}]{LyzinskiFishkindPriebe2016}
-\bibinfo{author}{Lyzinski, V.}, \bibinfo{author}{Fishkind, D.},
-  \bibinfo{author}{Fiori, M.}, \bibinfo{author}{Vogelstein, J.T.},
-  \bibinfo{author}{Priebe, C.E.}, \bibinfo{author}{Sapiro, G.},
-  \bibinfo{year}{2016}.
-\newblock \bibinfo{title}{Graph matching: Relax at your own risk}.
-\newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence} \bibinfo{volume}{38}, \bibinfo{pages}{60--73}.
-%Type = Article
-\bibitem[{Lyzinski et~al.(2014)Lyzinski, Fishkind and
-  Priebe}]{LyzinskiFishkindPriebe2014}
-\bibinfo{author}{Lyzinski, V.}, \bibinfo{author}{Fishkind, D.},
-  \bibinfo{author}{Priebe, C.E.}, \bibinfo{year}{2014}.
-\newblock \bibinfo{title}{Seeded graph matching for correlated {E}rdos-{R}enyi
-  graphs}.
-\newblock \bibinfo{journal}{Journal of Machine Learning Research}
-  \bibinfo{volume}{15}, \bibinfo{pages}{3513--3540}.
-%Type = Article
-\bibitem[{Pan and Yang(2010)}]{PanYang2010}
-\bibinfo{author}{Pan, S.J.}, \bibinfo{author}{Yang, Q.}, \bibinfo{year}{2010}.
-\newblock \bibinfo{title}{A survey on transfer learning}.
-\newblock \bibinfo{journal}{IEEE Transactions on Knowledge and Data
-  Engineering} \bibinfo{volume}{22}, \bibinfo{pages}{1345--1359}.
-%Type = Article
-\bibitem[{Priebe et~al.(2013)Priebe, Marchette, Ma and
-  Adali}]{PriebeMarchette2012}
-\bibinfo{author}{Priebe, C.E.}, \bibinfo{author}{Marchette, D.J.},
-  \bibinfo{author}{Ma, Z.}, \bibinfo{author}{Adali, S.}, \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Manifold matching: Joint optimization of fidelity and
-  commensurability}.
-\newblock \bibinfo{journal}{Brazilian Journal of Probability and Statistics}
-  \bibinfo{volume}{27}, \bibinfo{pages}{377--400}.
-%Type = Article
-\bibitem[{Roweis and Saul(2003)}]{RoweisSaul2003}
-\bibinfo{author}{Roweis, S.T.}, \bibinfo{author}{Saul, L.K.},
-  \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{Think globally, fit locally: Unsupervised learning of
-  low dimensional manifolds}.
-\newblock \bibinfo{journal}{Journal of Machine Learning Research}
-  \bibinfo{volume}{4}, \bibinfo{pages}{119--155}.
-%Type = Article
-\bibitem[{Saul and Roweis(2000)}]{SaulRoweis2000}
-\bibinfo{author}{Saul, L.K.}, \bibinfo{author}{Roweis, S.T.},
-  \bibinfo{year}{2000}.
-\newblock \bibinfo{title}{Nonlinear dimensionality reduction by locally linear
-  embedding}.
-\newblock \bibinfo{journal}{Science} \bibinfo{volume}{290},
-  \bibinfo{pages}{2323--2326}.
-%Type = Article
-\bibitem[{Scholkopf et~al.(1998)Scholkopf, Smola and
-  Muller}]{ScholkopfSmolaMuller1998}
-\bibinfo{author}{Scholkopf, B.}, \bibinfo{author}{Smola, A.},
-  \bibinfo{author}{Muller, K.}, \bibinfo{year}{1998}.
-\newblock \bibinfo{title}{Nonlinear component analysis as a kernel eigenvalue
-  problem}.
-\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{10},
-  \bibinfo{pages}{1299--1319}.
-%Type = Inproceedings
-\bibitem[{Sharma et~al.(2012)Sharma, Kumar, III and Jacobs}]{SharmaKumar2012}
-\bibinfo{author}{Sharma, A.}, \bibinfo{author}{Kumar, A.},
-  \bibinfo{author}{III, H.D.}, \bibinfo{author}{Jacobs, D.},
-  \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{Generalized multiview analysis: A discriminative
-  latent space}, in: \bibinfo{booktitle}{IEEE Conference on Computer Vision and
-  Pattern Recognition (CVPR)}.
-%Type = Article
-\bibitem[{Shen et~al.(2017)Shen, Priebe, Maggioni and
-  Vogelstein}]{ShenEtAl2017}
-\bibinfo{author}{Shen, C.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{author}{Maggioni, M.}, \bibinfo{author}{Vogelstein, J.T.},
-  \bibinfo{year}{2017}.
-\newblock \bibinfo{title}{Discovering relationships across disparate data
-  modalities}.
-\newblock \bibinfo{journal}{Submitted} .
-%Type = Article
-\bibitem[{Shen et~al.(2014)Shen, Sun, Tang and Priebe}]{ShenSunTangPriebe2014}
-\bibinfo{author}{Shen, C.}, \bibinfo{author}{Sun, M.}, \bibinfo{author}{Tang,
-  M.}, \bibinfo{author}{Priebe, C.E.}, \bibinfo{year}{2014}.
-\newblock \bibinfo{title}{Generalized canonical correlation analysis for
-  classification}.
-\newblock \bibinfo{journal}{Journal of Multivariate Analysis}
-  \bibinfo{volume}{130}, \bibinfo{pages}{310--322}.
-%Type = Article
-\bibitem[{Sibson(1978)}]{Sibson1978}
-\bibinfo{author}{Sibson, R.}, \bibinfo{year}{1978}.
-\newblock \bibinfo{title}{Studies in the robustness of multidimensional
-  scaling: {Procrustes} statistics}.
-\newblock \bibinfo{journal}{Journal of the Royal Statistical Society. Series B}
-  \bibinfo{volume}{40}, \bibinfo{pages}{234--238}.
-%Type = Article
-\bibitem[{Sibson(1979)}]{Sibson1979}
-\bibinfo{author}{Sibson, R.}, \bibinfo{year}{1979}.
-\newblock \bibinfo{title}{Studies in the robustness of multidimensional
-  scaling: Perturbation analysis of classical scaling}.
-\newblock \bibinfo{journal}{Journal of the Royal Statistical Society. Series B}
-  \bibinfo{volume}{41}, \bibinfo{pages}{217--229}.
-%Type = Article
-\bibitem[{de~Silva and Tenenbaum(2003)}]{SilvaTenenbaum2003}
-\bibinfo{author}{de~Silva, V.}, \bibinfo{author}{Tenenbaum, J.B.},
-  \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{Global versus local methods in nonlinear
-  dimensionality reduction}.
-\newblock \bibinfo{journal}{Advances in Neural Informaiton Processing Systems}
-  \bibinfo{volume}{15}, \bibinfo{pages}{721--728}.
-%Type = Article
-\bibitem[{Sun and Priebe(2013)}]{SunPriebe2012}
-\bibinfo{author}{Sun, M.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Efficiency investigation of manifold matching for
-  text document classification}.
-\newblock \bibinfo{journal}{Pattern Recognition Letters} \bibinfo{volume}{34},
-  \bibinfo{pages}{1263--1269}.
-%Type = Article
-\bibitem[{Sun et~al.(2013)Sun, Priebe and Tang}]{SunPriebeTang2013}
-\bibinfo{author}{Sun, M.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{author}{Tang, M.}, \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Generalized canonical correlation analysis for
-  disparate data fusion}.
-\newblock \bibinfo{journal}{Pattern Recognition Letters} \bibinfo{volume}{34},
-  \bibinfo{pages}{194--200}.
-%Type = Article
-\bibitem[{Sussman et~al.(2013)Sussman, Tang, Fishkind and Priebe}]{Sussman2013}
-\bibinfo{author}{Sussman, D.L.}, \bibinfo{author}{Tang, M.},
-  \bibinfo{author}{Fishkind, D.E.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{{A consistent dot product embedding for stochastic
-  blockmodel graphs}}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{volume}{107}, \bibinfo{pages}{1119--1128}.
-%Type = Article
-\bibitem[{Tang et~al.(2016)Tang, Athreya, Sussman, Lyzinski, Park and
-  Priebe}]{Tang2016}
-\bibinfo{author}{Tang, M.}, \bibinfo{author}{Athreya, A.},
-  \bibinfo{author}{Sussman, D.L.}, \bibinfo{author}{Lyzinski, V.},
-  \bibinfo{author}{Park, Y.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{year}{2016}.
-\newblock \bibinfo{title}{A semiparametric two-sample hypothesis testing
-  problem for random graphs}.
-\newblock \bibinfo{journal}{Journal of Computational {\&} Graphical Statistics}
-  .
-%Type = Article
-\bibitem[{Tenenbaum et~al.(2000)Tenenbaum, de~Silva and
-  Langford}]{TenenbaumSilvaLangford2000}
-\bibinfo{author}{Tenenbaum, J.B.}, \bibinfo{author}{de~Silva, V.},
-  \bibinfo{author}{Langford, J.C.}, \bibinfo{year}{2000}.
-\newblock \bibinfo{title}{A global geometric framework for nonlinear dimension
-  reduction}.
-\newblock \bibinfo{journal}{Science} \bibinfo{volume}{290},
-  \bibinfo{pages}{2319--2323}.
-%Type = Article
-\bibitem[{Tipping and Bishop(1999)}]{BishopTipping1999}
-\bibinfo{author}{Tipping, M.E.}, \bibinfo{author}{Bishop, C.M.},
-  \bibinfo{year}{1999}.
-\newblock \bibinfo{title}{Probabilistic principal component analysis}.
-\newblock \bibinfo{journal}{Journal of the Royal Statistical Society, Series B}
-  \bibinfo{volume}{61}, \bibinfo{pages}{611--622}.
-%Type = Book
-\bibitem[{Torgerson(1952)}]{TorgersonBook}
-\bibinfo{author}{Torgerson, W.}, \bibinfo{year}{1952}.
-\newblock \bibinfo{title}{Multidimensional Scaling: I. {Theory} and method}.
-\newblock \bibinfo{publisher}{Psychometrika}.
-%Type = Article
-\bibitem[{Trosset and Priebe(2008)}]{TrossetPriebe2008}
-\bibinfo{author}{Trosset, M.W.}, \bibinfo{author}{Priebe, C.E.},
-  \bibinfo{year}{2008}.
-\newblock \bibinfo{title}{The out-of-sample problem for classical
-  multidimensional scaling}.
-\newblock \bibinfo{journal}{Computational Statistics and Data Analysis}
-  \bibinfo{volume}{52}, \bibinfo{pages}{4635--4642}.
-%Type = Article
-\bibitem[{Vogelstein et~al.(2015)Vogelstein, Conroy, Lyzinski, Podrazik,
-  Kratzer, Harley, Fishkind, Vogelstein and Priebe}]{JoshuaEtAl2015}
-\bibinfo{author}{Vogelstein, J.}, \bibinfo{author}{Conroy, J.},
-  \bibinfo{author}{Lyzinski, V.}, \bibinfo{author}{Podrazik, L.},
-  \bibinfo{author}{Kratzer, S.}, \bibinfo{author}{Harley, E.},
-  \bibinfo{author}{Fishkind, D.}, \bibinfo{author}{Vogelstein, R.},
-  \bibinfo{author}{Priebe, C.}, \bibinfo{year}{2015}.
-\newblock \bibinfo{title}{Fast approximate quadratic programming for graph
-  matching}.
-\newblock \bibinfo{journal}{PLOS ONE} \bibinfo{volume}{10},
-  \bibinfo{pages}{e0121002}.
-%Type = Inproceedings
-\bibitem[{Wang et~al.(2012)Wang, Liu, Vu and Mahadevan}]{WangMahadevan2012}
-\bibinfo{author}{Wang, C.}, \bibinfo{author}{Liu, B.}, \bibinfo{author}{Vu,
-  H.}, \bibinfo{author}{Mahadevan, S.}, \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{Sparse manifold alignment}, in:
-  \bibinfo{booktitle}{Technical Report, UMass Computer Science UM-2012-030}.
-%Type = Inproceedings
-\bibitem[{Wang and Mahadevan(2008)}]{WangMahadevan2008}
-\bibinfo{author}{Wang, C.}, \bibinfo{author}{Mahadevan, S.},
-  \bibinfo{year}{2008}.
-\newblock \bibinfo{title}{Manifold alignment using {Procrustes} analysis}, in:
-  \bibinfo{booktitle}{Proceedings of the 25th International Conference on
-  Machine Learning}.
-%Type = Article
-\bibitem[{Zhang et~al.(2012)Zhang, Wang and Zha}]{ZhangWangZha2012}
-\bibinfo{author}{Zhang, Z.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Zha,
-  H.}, \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{Adaptive manifold learning}.
-\newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence} \bibinfo{volume}{34}, \bibinfo{pages}{253--265}.
-%Type = Article
-\bibitem[{Zhang and Zha(2004)}]{ZhangZha2004}
-\bibinfo{author}{Zhang, Z.}, \bibinfo{author}{Zha, H.}, \bibinfo{year}{2004}.
-\newblock \bibinfo{title}{Principal manifolds and nonlinear dimensionality
-  reduction via tangent space alignment}.
-\newblock \bibinfo{journal}{SIAM Journal on Scientific Computing}
-  \bibinfo{volume}{26}, \bibinfo{pages}{313--338}.
+\newblock Springer-Verlag, 2005.
+
+\bibitem{CoxBook}
+T.~Cox and M.~Cox, {\em Multidimensional Scaling}.
+\newblock Chapman and Hall, 2001.
+
+\bibitem{Hotelling1936}
+H.~Hotelling, ``Relations between two sets of variates,'' {\em Biometrika},
+  vol.~28, pp.~321--377, 1936.
+
+\bibitem{BachJordan2005}
+F.~R. Bach and M.~I. Jordan, ``A probabilistic interpretation of canonical
+  correlation analysis,'' tech. rep., Department of Statistics, UC Berkeley,
+  2005.
+
+\bibitem{TenenbaumSilvaLangford2000}
+J.~B. Tenenbaum, V.~de~Silva, and J.~C. Langford, ``A global geometric
+  framework for nonlinear dimension reduction,'' {\em Science}, vol.~290,
+  pp.~2319--2323, 2000.
+
+\bibitem{SilvaTenenbaum2003}
+V.~de~Silva and J.~B. Tenenbaum, ``Global versus local methods in nonlinear
+  dimensionality reduction,'' {\em Advances in Neural Informaiton Processing
+  Systems}, vol.~15, pp.~721--728, 2003.
+
+\bibitem{SaulRoweis2000}
+L.~K. Saul and S.~T. Roweis, ``Nonlinear dimensionality reduction by locally
+  linear embedding,'' {\em Science}, vol.~290, pp.~2323--2326, 2000.
+
+\bibitem{RoweisSaul2003}
+S.~T. Roweis and L.~K. Saul, ``Think globally, fit locally: Unsupervised
+  learning of low dimensional manifolds,'' {\em Journal of Machine Learning
+  Research}, vol.~4, pp.~119--155, 2003.
+
+\bibitem{DonohoGrimes2003}
+D.~Donoho and C.~Grimes, ``Hessian eigenmaps: New locally linear embedding
+  techniques for high-dimensional data,'' in {\em Proceedings of the National
+  Academy of Arts and Sciences}, vol.~100, pp.~5591--5596, 2003.
+
+\bibitem{BelkinNiyogi2003}
+M.~Belkin and P.~Niyogi, ``Laplacian eigenmaps for dimensionality reduction and
+  data representation,'' {\em Neural Computation}, vol.~15, no.~6,
+  pp.~1373--1396, 2003.
+
+\bibitem{HeEtAl2005}
+X.~He, S.~Yan, Y.~Hu, P.~Niyogi, and H.~Zhang, ``Face recognition using
+  {Laplacianfaces},'' {\em IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~27, no.~3, pp.~328--340, 2005.
+
+\bibitem{ZhangZha2004}
+Z.~Zhang and H.~Zha, ``Principal manifolds and nonlinear dimensionality
+  reduction via tangent space alignment,'' {\em SIAM Journal on Scientific
+  Computing}, vol.~26, no.~1, pp.~313--338, 2004.
+
+\bibitem{ZhangWangZha2012}
+Z.~Zhang, J.~Wang, and H.~Zha, ``Adaptive manifold learning,'' {\em IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}, vol.~34, no.~2,
+  pp.~253--265, 2012.
+
+\bibitem{Kettenring1971}
+J.~R. Kettenring, ``Canonical analysis of several sets of variables,'' {\em
+  Biometrika}, vol.~58, no.~3, pp.~433--451, 1971.
+
+\bibitem{Hardoon2004}
+D.~R. Hardoon, S.~Szedmak, and J.~Shawe-Taylor, ``Canonical correlation
+  analysis: An overview with application to learning methods,'' {\em Neural
+  Computation}, vol.~16, no.~12, pp.~2639--2664, 2004.
+
+\bibitem{Sibson1978}
+R.~Sibson, ``Studies in the robustness of multidimensional scaling:
+  {Procrustes} statistics,'' {\em Journal of the Royal Statistical Society.
+  Series B}, vol.~40, no.~2, pp.~234--238, 1978.
+
+\bibitem{Sibson1979}
+R.~Sibson, ``Studies in the robustness of multidimensional scaling:
+  Perturbation analysis of classical scaling,'' {\em Journal of the Royal
+  Statistical Society. Series B}, vol.~41, no.~2, pp.~217--229, 1979.
+
+\bibitem{GoldbergRitov2009}
+Y.~Goldberg and Y.~Ritov, ``Local {Procrustes} for manifold embedding: a
+  measure of embedding quality and embedding algorithms,'' {\em Machine
+  learning}, vol.~77, no.~1, pp.~1--25, 2009.
+
+\bibitem{GowerProcrustesBook}
+J.~C. Gower and G.~B. Dijksterhuis, {\em {Procrustes} Problems}.
+\newblock Oxford University Press, 2004.
+
+\bibitem{LafonKellerCoifman2006}
+S.~Lafon, Y.~Keller, and R.~Coifman, ``Data fusion and multi-cue data matching
+  by difusion maps,'' {\em IEEE transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~28, no.~11, pp.~1784--1797, 2006.
+
+\bibitem{WangMahadevan2008}
+C.~Wang and S.~Mahadevan, ``Manifold alignment using {Procrustes} analysis,''
+  in {\em Proceedings of the 25th International Conference on Machine
+  Learning}, 2008.
+
+\bibitem{WangMahadevan2012}
+C.~Wang, B.~Liu, H.~Vu, and S.~Mahadevan, ``Sparse manifold alignment,'' in
+  {\em Technical Report, UMass Computer Science UM-2012-030}, 2012.
+
+\bibitem{SharmaKumar2012}
+A.~Sharma, A.~Kumar, H.~D. III, and D.~Jacobs, ``Generalized multiview
+  analysis: A discriminative latent space,'' in {\em IEEE Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2012.
+
+\bibitem{PriebeMarchette2012}
+C.~E. Priebe, D.~J. Marchette, Z.~Ma, and S.~Adali, ``Manifold matching: Joint
+  optimization of fidelity and commensurability,'' {\em Brazilian Journal of
+  Probability and Statistics}, vol.~27, no.~3, pp.~377--400, 2013.
+
+\bibitem{SunPriebeTang2013}
+M.~Sun, C.~E. Priebe, and M.~Tang, ``Generalized canonical correlation analysis
+  for disparate data fusion,'' {\em Pattern Recognition Letters}, vol.~34,
+  no.~2, pp.~194--200, 2013.
+
+\bibitem{ShenSunTangPriebe2014}
+C.~Shen, M.~Sun, M.~Tang, and C.~E. Priebe, ``Generalized canonical correlation
+  analysis for classification,'' {\em Journal of Multivariate Analysis},
+  vol.~130, pp.~310--322, 2014.
+
+\bibitem{KimKittlerCipolla2007}
+T.-K. Kim, J.~Kittler, and R.~Cipolla, ``Discriminative learning and
+  recognition of image set classes using canonical correlations,'' {\em IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}, vol.~29, no.~6,
+  pp.~1005--1018, 2007.
+
+\bibitem{SunPriebe2012}
+M.~Sun and C.~E. Priebe, ``Efficiency investigation of manifold matching for
+  text document classification,'' {\em Pattern Recognition Letters}, vol.~34,
+  no.~11, pp.~1263--1269, 2013.
+
+\bibitem{PanYang2010}
+S.~J. Pan and Q.~Yang, ``A survey on transfer learning,'' {\em IEEE
+  Transactions on Knowledge and Data Engineering}, vol.~22, no.~10,
+  pp.~1345--1359, 2010.
+
+\bibitem{LyzinskiFishkindPriebe2014}
+V.~Lyzinski, D.~Fishkind, and C.~E. Priebe, ``Seeded graph matching for
+  correlated {E}rdos-{R}enyi graphs,'' {\em Journal of Machine Learning
+  Research}, vol.~15, pp.~3513--3540, 2014.
+
+\bibitem{JoshuaEtAl2015}
+J.~Vogelstein, J.~Conroy, V.~Lyzinski, L.~Podrazik, S.~Kratzer, E.~Harley,
+  D.~Fishkind, R.~Vogelstein, and C.~Priebe, ``Fast approximate quadratic
+  programming for graph matching,'' {\em PLOS ONE}, vol.~10, no.~4,
+  p.~e0121002, 2015.
+
+\bibitem{LyzinskiFishkindPriebe2016}
+V.~Lyzinski, D.~Fishkind, M.~Fiori, J.~T. Vogelstein, C.~E. Priebe, and
+  G.~Sapiro, ``Graph matching: Relax at your own risk,'' {\em IEEE Transactions
+  on Pattern Analysis and Machine Intelligence}, vol.~38, no.~1, pp.~60--73,
+  2016.
+
+\bibitem{GoldbergRitov2008}
+Y.~Goldberg and Y.~Ritov, ``Manifold learning: the price of normalization,''
+  {\em Journal of Machine learning research}, vol.~9, pp.~1909--1939, 2008.
+
+\bibitem{HofmannEtAl2008}
+T.~Hofmann, B.~Scholkopf, and A.~Smola, ``Kernel methods in machine learning,''
+  {\em The Annals of Statistics}, vol.~36, no.~3, pp.~1171--1220, 2008.
+
+\bibitem{BengioEtal2003}
+Y.~Bengio, J.~F. Paiement, and P.~Vincent, ``Out-of-sample extensions for
+  {LLE}, {Isomap}, {MDS}, {Eigenmaps}, and {Spectral Clustering},'' in {\em
+  Advances in Neural Information Processing Systems}, pp.~177--184, MIT Press,
+  2003.
+
+\bibitem{BernsteinEtAl2000}
+M.~Bernstein, V.~de~Silva, J.~C. Langford, and J.~B. Tenenbaum, ``Graph
+  approximations to geodesics on embedded manifolds,'' 2000.
+
+\bibitem{FishkindShenPriebe2016}
+D.~Fishkind, C.~Shen, Y.~Park, and C.~E. Priebe, ``On the incommensurability
+  phenomenon,'' {\em Journal of Classification}, vol.~33, no.~2, pp.~185--209,
+  2016.
+
+\bibitem{ScholkopfSmolaMuller1998}
+B.~Scholkopf, A.~Smola, and K.~Muller, ``Nonlinear component analysis as a
+  kernel eigenvalue problem,'' {\em Neural Computation}, vol.~10,
+  pp.~1299--1319, 1998.
+
+\bibitem{TrossetPriebe2008}
+M.~W. Trosset and C.~E. Priebe, ``The out-of-sample problem for classical
+  multidimensional scaling,'' {\em Computational Statistics and Data Analysis},
+  vol.~52, no.~10, pp.~4635--4642, 2008.
+
+\bibitem{Mahoney2005}
+P.~Drineas and M.~Mahoney, ``On the {Nystrom} method for approximating a {Gram}
+  matrix for improved kernel-based learning,'' {\em Journal of Machine Learning
+  Research}, vol.~6, p.~2153–2175, 2005.
+
+\bibitem{DeerwesterDumais1990}
+S.~Deerwester, S.~Dumais, T.~Landauer, G.~Furnas, and R.~Harshman, ``Indexing
+  by latent semantic analysis,'' {\em Journal of the American Society of
+  Information Science}, vol.~41, no.~6, pp.~391--407, 1990.
+
+\bibitem{GrayRoncal2013}
+W.~Gray~Roncal, Z.~H. Koterba, D.~Mhembere, D.~M. Kleissas, J.~T. Vogelstein,
+  R.~Burns, A.~R. Bowles, D.~K. Donavos, S.~Ryman, R.~E. Jung, L.~Wu, V.~D.
+  Calhoun, and R.~J. Vogelstein, ``{MIGRAINE}: {MRI} graph reliability analysis
+  and inference for connectomics,'' {\em Global Conference on Signal and
+  Information Processing}, 2013.
+
+\bibitem{Sussman2013}
+D.~L. Sussman, M.~Tang, D.~E. Fishkind, and C.~E. Priebe, ``{A consistent dot
+  product embedding for stochastic blockmodel graphs},'' {\em Journal of the
+  American Statistical Association}, vol.~107, no.~499, pp.~1119--1128, 2013.
+
+\bibitem{Tang2016}
+M.~Tang, A.~Athreya, D.~L. Sussman, V.~Lyzinski, Y.~Park, and C.~E. Priebe, ``A
+  semiparametric two-sample hypothesis testing problem for random graphs,''
+  {\em Journal of Computational {\&} Graphical Statistics}, 2016.
+
+\bibitem{ShenEtAl2017}
+C.~Shen, C.~E. Priebe, M.~Maggioni, and J.~T. Vogelstein, ``Discovering
+  relationships across disparate data modalities,'' {\em
+  https://arxiv.org/abs/1609.05148}, 2017.
+
+\bibitem{JJ2008}
+J.~Jiang, S.~Zheng, A.~Toga, and Z.~Tu, ``Learning based coarse-to-fine image
+  registration,'' in {\em Proceedings of IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, 2008.
+
+\bibitem{ConteEtAl2004}
+D.~Conte, P.~Foggia, C.~Sansone, and M.~Vento, ``Thirty years of graph matching
+  in pattern recognition,'' {\em International Journal of Pattern Recognition
+  and Artificial Intelligence}, vol.~18, no.~3, pp.~265--298, 2004.
+
+\bibitem{FioriEtAl2013}
+M.~Fiori, P.~Sprechmann, J.~Vogelstein, P.~Musé, and G.~Sapiro, ``Robust
+  multimodal graph matching: Sparse coding meets graph matching,'' in {\em
+  Advances in Neural Information Processing Systems}, pp.~127--135, 2013.
 
 \end{thebibliography}
