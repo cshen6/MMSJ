@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  26 FEB 2017 12:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.7)  2 APR 2017 20:43
 entering extended mode
 **Appendix.tex
 (C:\Work\Applications\GitHub\MMSJ\Draft\Appendix.tex
@@ -674,18 +674,18 @@ Overfull \hbox (10.95003pt too wide) in paragraph at lines 76--85
  [][] 
  []
 
-<WikiTETF.png, id=10, 578.16pt x 433.62pt>
+<WikiTETF.png, id=10, 1445.4pt x 1084.05pt>
 File: WikiTETF.png Graphic file (type png)
  <use WikiTETF.png>
 Package pdftex.def Info: WikiTETF.png used on input line 93.
-(pdftex.def)             Requested size: 137.60461pt x 103.19754pt.
- <WikiTEGE.png, id=11, 578.16pt x 433.62pt>
+(pdftex.def)             Requested size: 137.60461pt x 103.20085pt.
+ <WikiTEGE.png, id=12, 1445.4pt x 1084.05pt>
 File: WikiTEGE.png Graphic file (type png)
 
 <use WikiTEGE.png>
 Package pdftex.def Info: WikiTEGE.png used on input line 94.
-(pdftex.def)             Requested size: 137.60461pt x 103.19754pt.
- <WikiGEGF.png, id=12, 578.16pt x 433.62pt>
+(pdftex.def)             Requested size: 137.60461pt x 103.20085pt.
+ <WikiGEGF.png, id=13, 578.16pt x 433.62pt>
 File: WikiGEGF.png Graphic file (type png)
  <use WikiGEGF.png>
 Package pdftex.def Info: WikiGEGF.png used on input line 95.
@@ -695,7 +695,7 @@ Overfull \hbox (10.95003pt too wide) in paragraph at lines 91--100
  [][] 
  []
 
-<SwissRollSizeAcc2.png, id=13, 578.16pt x 433.62pt>
+<SwissRollSizeAcc2.png, id=14, 578.16pt x 433.62pt>
 File: SwissRollSizeAcc2.png Graphic file (type png)
  <use SwissRollSizeAcc2.png>
 Package pdftex.def Info: SwissRollSizeAcc2.png used on input line 105.
@@ -706,10 +706,9 @@ Package pdftex.def Info: SwissRollSizeAcc2.png used on input line 105.
 wer1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollNoisePower1.png (PNG copy)> <C:/Work/Applications/
 GitHub/MMSJ/Draft/SwissRollOutlierPower1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollAcc1.png (PNG 
 copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/SwissRollNoiseAcc1.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draf
-t/SwissRollOutlierAcc1.png (PNG copy)>] [2 <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTETF.png (PNG copy)> <C:/Work/App
-lications/GitHub/MMSJ/Draft/WikiTEGE.png (PNG copy)> <C:/Work/Applications/GitHub/MMSJ/Draft/WikiGEGF.png (PNG copy)> <C
-:/Work/Applications/GitHub/MMSJ/Draft/SwissRollSizeAcc2.png (PNG copy)>] (C:\Work\Applications\GitHub\MMSJ\Draft\Appendi
-x.aux) ) 
+t/SwissRollOutlierAcc1.png (PNG copy)>] [2 <C:/Work/Applications/GitHub/MMSJ/Draft/WikiTETF.png> <C:/Work/Applications/G
+itHub/MMSJ/Draft/WikiTEGE.png> <C:/Work/Applications/GitHub/MMSJ/Draft/WikiGEGF.png> <C:/Work/Applications/GitHub/MMSJ/D
+raft/SwissRollSizeAcc2.png (PNG copy)>] (C:\Work\Applications\GitHub\MMSJ\Draft\Appendix.aux) ) 
 Here is how much of TeX's memory you used:
  15930 strings out of 493921
  308270 string characters out of 3147277
@@ -718,11 +717,12 @@ Here is how much of TeX's memory you used:
  9901 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  55i,15n,56p,745b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on Appendix.pdf (2 pages, 1056902 bytes).
+<C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on Appendix.pdf (2 pages, 945439 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
+ 38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
